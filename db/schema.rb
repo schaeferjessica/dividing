@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_06_01_143541) do
     t.integer "employer_contribution"
     t.integer "total_balance"
     t.string "currency"
-    t.string "paid_by"
     t.string "split_type"
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false

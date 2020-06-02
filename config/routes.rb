@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :groups do
     resources :activity_costs
+    resources :members, only: [:new, :create]
   end
 
   resources :activity_costs do
