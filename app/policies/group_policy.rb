@@ -5,6 +5,10 @@ class GroupPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def index?
     true
   end
