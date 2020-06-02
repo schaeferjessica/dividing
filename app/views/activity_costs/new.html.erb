@@ -1,0 +1,32 @@
+<div class="container page-3 m-3 px-3">
+      <div class="context">
+        <h1>Total amount paid<sup>*</sup></h1>
+        <form accept-charset="UTF-8" action="">
+            <div class="form-group">
+              <input id="name" type="text"  placeholder="👉 Please enter the amount on the invoice here ..">
+            </div>
+          <h2>Total cost paid by *</h2>
+          <select id="name" name="namelist">
+            <option value=""selected disabled hidden>👉 please select in the name</option>
+            <% @members.each do |member|%>
+              <option><%= member.name %></option>
+            <% end %>
+          </select>
+
+          <h2>Additional costs</h2>
+          <p>Here you can add an additional cost like service tip.</p>
+            <div class="form-group">
+              <input id="name" type="text" placeholder="👉 this is optional ..">
+            </div>
+
+          <h2>subtracting cost</h2>
+          <p>Here you can take away the amount that you get as a contribution and don’t need to get divided.</p>
+            <div class="form-group">
+              <label for="name">subtracting cost</label>
+              <input id="name" type="text" placeholder="👉 this is optional ..">
+            </div>
+        </form>
+      </div>
+</div>
+
+

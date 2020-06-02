@@ -1,10 +1,12 @@
-// Define variables for your color scheme
+// color
+$base-color: #f5f1ea;
+$black-color: #262627;
+$blue-color: #c6dcfd;
+$red-color: #e63946;
 
-// For example:
-$red: #FD1015;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+:root {
+  --base-color: #f5f1ea;
+  --black-color: #262627;
+  --blue-color: #c6dcfd;
+  --red-color: #e63946;
+}
