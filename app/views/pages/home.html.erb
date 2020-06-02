@@ -1,9 +1,9 @@
 <section class="page-1">
   <div class="btn">
-    <button class="btn-sign-in">sign in</button>
-    <button class="btn-sign-up">sign up for free</button>
-    <button class="btn-contact">contact</button>
-    <button class="btn-impressum">impressum</button>
+    <button class="btn-light">sign in</button>
+    <button class="btn-light">sign up for free</button>
+    <button class="btn-minimal">contact</button>
+    <button class="btn-minimal">impressum</button>
   </div>
   <div class="context">
     <div class="inner">
@@ -50,7 +50,7 @@
                           input_html: { autocomplete: "new-password" } %>
             </div>
             <div class="form-actions">
-              <%= f.button :submit, "Sign up" %>
+              <%= f.button :submit, "create my accout", class:"btn-dark" %>
             </div>
           <% end %>
         </div>
@@ -68,7 +68,7 @@
               <%= f.input :remember_me, as: :boolean %>
             </div>
             <div class="form-actions">
-              <%= f.button :submit, "Log in" %>
+              <%= f.button :submit, "Log in", class:"btn-dark" %>
             </div>
           <% end %>
         </div>
