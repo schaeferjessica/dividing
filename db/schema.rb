@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_143541) do
 
   create_table "groups", force: :cascade do |t|
     t.string "group_name"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_143541) do
 
   create_table "members", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_members_on_user_id"
