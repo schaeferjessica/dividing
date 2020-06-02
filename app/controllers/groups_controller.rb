@@ -1,8 +1,8 @@
 class GroupsController < ApplicationController
-    before_action :set_sloth, only: [ :show, :edit, :update, :destroy]
+    before_action :set_group, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @groups = Group.all
+     @groups = policy_scope(Group).order(created_at: :desc)
   end
 
   def show
@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    authorize @group
   end
 
   def create
@@ -20,6 +21,7 @@ class GroupsController < ApplicationController
     else
       render :new
     end
+    authorize @group
   end
 
   def edit
@@ -42,6 +44,7 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Groups.find(params[:id])
+    authorize @group
   end
 
   def group_params
