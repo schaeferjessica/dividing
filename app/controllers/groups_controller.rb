@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
     before_action :set_group, only: [ :show, :edit, :update, :destroy]
+    skip_before_action :authenticate_user!, only: [ :new, :create ]
 
   def index
      @groups = policy_scope(Group).order(created_at: :desc)
