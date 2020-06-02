@@ -3,3 +3,8 @@ label {
   font-weight: 400;
   color: $black-color;
 }
+
+.form-control {
+  border: none;
+  background-color: $base-color;
+}

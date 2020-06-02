@@ -1,1 +1,19 @@
-// Specific CSS for your home-page
+.home {
+  background-color: $base-color;
+  min-height: 100vh;
+
+  .name-wrapper,
+  .password-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .form-group {
+      flex: 0 0 48%;
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: center;
+  }
+}
