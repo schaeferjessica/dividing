@@ -1,46 +1,15 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
-@import "config/bootstrap_variables";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// color
-$base-color: #f5f1ea;
-$black-color: #262627;
-$blue-color: #c6dcfd;
-$red-color: #e63946;
-
-:root {
-  --base-color: #f5f1ea;
-  --black-color: #262627;
-  --blue-color: #c6dcfd;
-  --red-color: #e63946;
-}
-
-
-// media query
-$xsmall: 600px;
-$small: 767px;
-$medium: 992px;
-$large: 1024px;
-$xlarge: 1199px;
-$max-width: 1440px;
-
-//fonts
-$font-roboto: "Roboto", sans-serif;
-$font-sans: "Open Sans", sans-serif;
-$font-jost: 'Jost', sans-serif;
-
-//fonts
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,500,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
-
 // Your CSS partials
+// resets
+@import "base/resets";
 // base
 @import "base/button";
 @import "base/forms";
@@ -52,53 +21,3 @@ $font-jost: 'Jost', sans-serif;
 // pages
 @import "pages/index";
 
-html {
-  box-sizing: border-box;
-  font-family: $font-sans;
-  color: $black-color;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  margin: 0;
-  overflow-x: hidden;
-  position: relative;
-}
-
-img {
-  width: 100%;
-}
-
-button,
-input[type="submit"],
-input {
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
-  outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  text-decoration: none;
-  background: none;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  font-family: $font-roboto;
-}
-
-select {
-  background: none;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  box-shadow: none;
-  -webkit-appearance: none; // hide arrow for chrome
-  -moz-appearance: none; // hide arrow for firefox
-}
