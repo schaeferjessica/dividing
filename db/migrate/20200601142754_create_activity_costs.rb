@@ -6,6 +6,7 @@ class CreateActivityCosts < ActiveRecord::Migration[6.0]
       t.integer :employer_contribution
       t.integer :total_balance
       t.string :currency
+      t.string :paid_by
       t.string :split_type
       t.references :group, null: false, foreign_key: true
 
