@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
   resources :groups do
-    resources :activity_costs
+    resources :activity_costs, only: [:new, :create, :edit, :update]
     resources :members, only: [:new, :create, :destroy]
   end
 
-  resources :activity_costs do
+  resources :activity_costs, only: [] do
     resources :splits
   end
 end
