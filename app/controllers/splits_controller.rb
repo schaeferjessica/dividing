@@ -30,6 +30,13 @@ class SplitsController < ApplicationController
   #   authorize @split
   # end
 
+  def index
+    @splits = policy_scope(Split)
+    @activity_cost = ActivityCost.find(params[:activity_cost_id])
+    @splits = @activity_cost.splits
+    authorize @splits
+  end
+
   # private
 
   # def split_params

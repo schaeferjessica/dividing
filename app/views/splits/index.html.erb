@@ -1,0 +1,22 @@
+<div class="container">
+  <p>
+    Hey <%= @activity_cost.group.group_name %>, let's split the cost between us <%= @activity_cost.split_type %>
+  </p>
+
+  <h3>Total cost: <%= @activity_cost.actual_cost %></h3>
+  <h6>subtracting cost - <%= @activity_cost.employer_contribution %></h6>
+  <h6>additional cost + <%= @activity_cost.service_tip %></h6>
+  <h2>total amount: <%= @activity_cost.total_balance %></h2>
+
+  <%= @splits.each do |split| %>
+    <div>
+      <p><%= split.member.name %></p>
+      <p>please pay <%= split.activity_cost.paid_by split.individual_balances %></p>
+      <% if split.status = false %>
+        <p>outstanding</p>
+      <% else %>
+        <p>paid</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
