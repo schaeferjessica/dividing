@@ -1,14 +1,29 @@
 <!-- navbar -->
 <div class="navbar navbar-expand-sm navbar-light">
-  <div class="btn">
-    <% if !user_signed_in? %>
-      <button class="btn-light btn-overlay" data-target="log-in-container">sign in</button>
-      <button class="btn-light btn-overlay" data-target="sign-up-container">sign up for free</button>
-    <% end %>
-    <% if user_signed_in? %>
-      <button class="btn-light">saved groups & splits</button>
-    <% end %>
-  </div>
+  <% if !user_signed_in? %>
+    <div class="inner-logedout">
+      <li class="nav-item">
+        <button class="btn-light btn-overlay" data-target="log-in-container">sign in</button>
+      </li>
+      <li class="nav-item">
+        <button class="btn-light btn-overlay" data-target="sign-up-container">sign up for free</button>
+      </li>
+    </div>
+  <% else %>
+    <div class="inner-logedin">
+      <li class="nav-item">
+        <button class="btn-light">saved groups & splits</button>
+      </li>
+      <li class="nav-item dropdown">
+        <p class="username">Jessica S</p>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/jschaefer", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <button class="dropdown-item btn-edit">edit profile ✏️</button>
+          <%= link_to "log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+    </div>
+  <% end %>
 </div>
 
 <!-- home page -->

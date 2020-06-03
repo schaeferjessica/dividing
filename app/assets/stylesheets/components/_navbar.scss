@@ -2,6 +2,33 @@
   justify-content: space-between;
   background: white;
   padding: 0;
+
+  .inner-logedout {
+    display: flex;
+    padding: 5px 20px;
+  }
+
+  .inner-logedin {
+    display: flex;
+    padding: 5px 20px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  .username {
+    padding-left: 15px;
+    margin-right: 40px;
+    margin-bottom: 0;
+  }
+
+  .avatar {
+    margin-right: 15px;
+  }
 }
 
 .navbar-collapse {
@@ -10,4 +37,17 @@
 
 .navbar-brand img {
   width: 40px;
+}
+
+.dropdown-item {
+    font-weight: 300;
+    font-size: 14px;
+    padding: 12px;
+}
+
+.dropdown-menu {
+    border: none;
+    left: -50px;
+    width: 100%;
+    left: 0;
 }
