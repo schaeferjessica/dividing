@@ -14,6 +14,7 @@ skip_before_action :authenticate_user!, only: [:new]
     @group = Group.find(group_id = 1)
     @activity_cost = ActivityCost.new(activity_cost_params)
     @activity_cost.group = @group
+    @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
 
     if @activity_cost.save
       redirect_to new_activity_cost_split_path(@activity_cost), notice: 'Activity Cost was successfully created.'
