@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2020_06_03_101140) do
   enable_extension "plpgsql"
 
   create_table "activity_costs", force: :cascade do |t|
-    t.integer "actual_cost"
-    t.integer "service_tip"
-    t.integer "employer_contribution"
-    t.integer "total_balance"
+    t.integer "actual_cost", default: 0
+    t.integer "service_tip", default: 0
+    t.integer "employer_contribution", default: 0
+    t.integer "total_balance", default: 0
     t.string "currency"
     t.string "paid_by"
     t.string "split_type"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_101140) do
     t.bigint "member_id", null: false
     t.integer "individual_balances"
     t.string "payment_type"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "split_type"
