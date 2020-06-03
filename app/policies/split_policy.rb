@@ -1,4 +1,4 @@
-class ActivityCostPolicy < ApplicationPolicy
+class SplitPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -18,7 +18,7 @@ class ActivityCostPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    owner_or_admin?
   end
 
   def destroy?

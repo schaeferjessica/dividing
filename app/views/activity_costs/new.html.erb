@@ -1,32 +1,20 @@
 <div class="container page-3 m-3 px-3">
-      <div class="context">
-        <h1>Total amount paid<sup>*</sup></h1>
-        <form accept-charset="UTF-8" action="">
-            <div class="form-group">
-              <input id="name" type="text"  placeholder="👉 Please enter the amount on the invoice here ..">
-            </div>
-          <h2>Total cost paid by *</h2>
-          <select id="name" name="namelist">
-            <option value=""selected disabled hidden>👉 please select in the name</option>
-            <% @members.each do |member|%>
-              <option><%= member.name %></option>
-            <% end %>
-          </select>
+  <div class="activity-form">
 
-          <h2>Additional costs</h2>
-          <p>Here you can add an additional cost like service tip.</p>
-            <div class="form-group">
-              <input id="name" type="text" placeholder="👉 this is optional ..">
-            </div>
+<%= simple_form_for @activity_cost do |f| %>
+  <div class="form-wrapper">
+    <%= f.input :actual_cost, label: 'Total amount paid', placeholder: '👉 please type the the total amount here ..' %>
+    <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
+    <%= f.input :employer_contribution, label: 'Employer contribution or Discount', placeholder: '👉 Employer contribution or discount (optional)..' %>
+    <%= f.input :currency, label: 'Currency', placeholder: 'EUR' %>
+    <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
+  </div>
 
-          <h2>subtracting cost</h2>
-          <p>Here you can take away the amount that you get as a contribution and don’t need to get divided.</p>
-            <div class="form-group">
-              <label for="name">subtracting cost</label>
-              <input id="name" type="text" placeholder="👉 this is optional ..">
-            </div>
-        </form>
-      </div>
+  <div class="btn-wrapper">
+    <%= link_to "Back",  class: "btn btn-primary" %>
+    <%= f.submit "Next", class: "btn btn-primary" %>
+  </div>
+  <% end %>
 </div>
 
-
+</div>

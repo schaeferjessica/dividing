@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :activity_costs do
-    resources :splits, only: [:show, :edit, :update]
+    resources :splits
   end
 end
