@@ -1,45 +1,31 @@
-const closeLogin = document.querySelector('.close-login');
-const closeSignup = document.querySelector('.close-signup');
-const closeEdit = document.querySelector('.close-edit');
-const openLogin = document.querySelector('.btn-sign-in');
-const openSignup = document.querySelector('.btn-sign-up');
-const openEdit = document.querySelector('.btn-edit');
-const overlayLogin = document.querySelector('#log-in-container');
-const overlaySignup = document.querySelector('#sign-up-container');
-const overlayEdit = document.querySelector('#edit-container');
+const overlayBtns = document.querySelectorAll('.btn-overlay');
+const overlayWrapper = document.querySelector('.overlay-wrapper');
+const overlays = document.querySelectorAll('.overlay');
+const overlayCloseBtn = document.querySelector('.btn-close');
 
-if (openLogin) {
-  openLogin.addEventListener('click', (event) => {
-    overlayLogin.classList.remove('is-hidden');
+if (overlayBtns.length) {
+  overlayBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = document.querySelector(`#${button.dataset.target}`);
+
+      // activate overlay wrapper
+      overlayWrapper.classList.add('is-active');
+
+      // hide all overlays (reset)
+      overlays.forEach(overlay => overlay.classList.add('is-hidden'));
+
+      // show the target overlay
+      target.classList.remove('is-hidden');
+    });
   });
 }
 
-if (closeLogin) {
-  closeLogin.addEventListener('click', (event) => {
-    overlayLogin.classList.add('is-hidden');
-  });
-}
+if (overlayCloseBtn) {
+  overlayCloseBtn.addEventListener('click', (event) => {
+    // hide overlay wrapper
+    overlayWrapper.classList.remove('is-active');
 
-if (openSignup) {
-  openSignup.addEventListener('click', (event) => {
-    overlaySignup.classList.remove('is-hidden');
-  });
-}
-
-if (closeSignup) {
-  closeSignup.addEventListener('click', (event) => {
-    overlaySignup.classList.add('is-hidden');
-  });
-}
-
-if (openEdit) {
-  openEdit.addEventListener('click', (event) => {
-    overlayEdit.classList.remove('is-hidden');
-  });
-}
-
-if (closeEdit) {
-  closeEdit.addEventListener('click', (event) => {
-    overlayEdit.classList.add('is-hidden');
+    // hide all overlays (reset)
+      overlays.forEach(overlay => overlay.classList.add('is-hidden'));
   });
 }
