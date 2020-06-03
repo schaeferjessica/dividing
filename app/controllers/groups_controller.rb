@@ -23,7 +23,6 @@ class GroupsController < ApplicationController
       render :new
     end
     authorize @group
-    raise
   end
 
   def edit
