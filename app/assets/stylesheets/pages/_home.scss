@@ -1,7 +1,7 @@
 .home {
   display: flex;
   background-color: $base-color;
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
 
   .context {
     display: flex;
@@ -18,4 +18,16 @@
     display: flex;
     justify-content: center;
   }
+}
+
+.cookie {
+  position: absolute;
+  bottom: 60px;
+  right: 15px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }

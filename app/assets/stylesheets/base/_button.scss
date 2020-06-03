@@ -16,7 +16,9 @@
 .btn-dark {
   font-size: 12px;
   padding: 10px 12px;
+  margin: 5px;
   background-color: $black-color;
+  border-radius: 5px;
   color: #fff;
   border: none;
 
@@ -26,9 +28,15 @@
   }
 }
 
+.btn-big {
+  font-size: 14px;
+  padding: 14px 16px;
+}
+
 // .btn-color {
 // }
 
 .btn-minimal {
   font-size: 12px;
+  margin: 5px;
 }
