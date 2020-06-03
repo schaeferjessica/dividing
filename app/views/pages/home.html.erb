@@ -40,7 +40,7 @@
 <!-- profile -->
 <div id="edit-container" class="overlay is-hidden">
   <h2>Edit Your Profile</h2>
-  <button class="close-edit">𝗫</button>
+  <button class="close-edit"></button>
   <%= simple_form_for(User.new, as: :user, url: registration_path(:user), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
@@ -72,7 +72,7 @@
 <a role="button" class="cookie"><span>🍪</span>accept me </a>
 
 <div class="overlay-wrapper">
-  <button class="btn-close">𝗫</button>
+  <button class="btn-close"></button>
   <!-- overlay sign in -->
   <div id="sign-up-container" class="overlay is-hidden">
     <h2>Create your account - save your team to your account and pay directly via paypal.</h2>
