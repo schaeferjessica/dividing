@@ -1,23 +1,24 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   background: white;
+  padding: 0;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-brand img {
   width: 40px;
 }
 
 .overlay {
-  height: calc(100% - 66px);
+  height: calc(100% - 64px);
   width: 50vw;
   background-color: #fff;
   position: absolute;
   left: 0;
-  top: 66px;
+  top: 64px;
   display: flex;
   flex-direction: column;
   padding: 25px;
