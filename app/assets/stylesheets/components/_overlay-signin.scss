@@ -7,3 +7,75 @@
       flex: 0 0 48%;
     }
   }
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn-close {
+  position: absolute;
+  top: 29px;
+  right: -40px;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+}
+
+
+.overlay-wrapper {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 62.5px;
+  height: calc(100% - 64px);
+  width: 50vw;
+  background-color: #fff;
+
+  @include media-breakpoint-down(sm) {
+   width: 100vw;
+  }
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  overflow: auto;
+
+  .form-inputs {
+    margin: 50px 0;
+  }
+
+  h2 {
+    margin-top: 20px;
+  }
+}
+
+.close-login,
+.close-signup {
+    position: absolute;
+    top: 16px;
+    right: 30px;
+  }
+
+.form-check input {
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 12px;
+  height: 12px;
+
+  &:checked {
+    background-color: black;
+  }
+}
+
+.is-hidden {
+  display: none;
+}

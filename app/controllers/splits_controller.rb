@@ -53,6 +53,13 @@ skip_before_action :authenticate_user!, only: [:new]
 
   private
 
+  def index
+    @splits = policy_scope(Split)
+    @activity_cost = ActivityCost.find(params[:activity_cost_id])
+    @splits = @activity_cost.splits
+    authorize @splits
+  end
+
   def split_params
     params.require(:split).permit(:split_type)
   end

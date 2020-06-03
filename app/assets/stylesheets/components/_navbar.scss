@@ -1,56 +1,13 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   background: white;
+  padding: 0;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-brand img {
   width: 40px;
-}
-
-.overlay {
-  height: calc(100% - 66px);
-  width: 50vw;
-  background-color: #fff;
-  position: absolute;
-  left: 0;
-  top: 66px;
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
-  overflow: auto;
-
-  @include media-breakpoint-down(sm) {
-   width: 100vw;
-  }
-
-  .form-inputs {
-    margin: 50px 0;
-  }
-}
-
-.close-login,
-.close-signup {
-    position: absolute;
-    top: 16px;
-    right: 30px;
-  }
-
-.form-check input {
-  background-color: #fff;
-  border: 1px solid black;
-  border-radius: 2px;
-  width: 12px;
-  height: 12px;
-
-  &:checked {
-    background-color: black;
-  }
-}
-
-.is-hidden {
-  display: none;
 }

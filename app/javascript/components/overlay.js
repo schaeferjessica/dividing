@@ -1,45 +1,61 @@
-const closeLogin = document.querySelector('.close-login');
-const closeSignup = document.querySelector('.close-signup');
-const closeEdit = document.querySelector('.close-edit');
-const openLogin = document.querySelector('.btn-sign-in');
-const openSignup = document.querySelector('.btn-sign-up');
-const openEdit = document.querySelector('.btn-edit');
-const overlayLogin = document.querySelector('#log-in-container');
-const overlaySignup = document.querySelector('#sign-up-container');
-const overlayEdit = document.querySelector('#edit-container');
+const overlayBtns = document.querySelectorAll('.btn-overlay');
+const overlayWrapper = document.querySelector('.overlay-wrapper');
+const overlays = document.querySelectorAll('.overlay');
+const overlayCloseBtn = document.querySelector('.btn-close');
+const matches = (el, selector) =>
+  (
+    el.matches ||
+    el.matchesSelector ||
+    el.msMatchesSelector ||
+    el.webkitMatchesSelector
+  ).call(el, selector);
 
-if (openLogin) {
-  openLogin.addEventListener('click', (event) => {
-    overlayLogin.classList.remove('is-hidden');
-  });
-}
+// helper for letting us know if the target is in some specific element
+const closest = (element, selector, checkSelf = true) => {
+  let parent = checkSelf ? element : element.parentNode;
+  while (parent && parent !== document) {
+    if (matches(parent, selector)) return parent;
+    parent = parent.parentNode;
+  }
+  return false;
+};
 
-if (closeLogin) {
-  closeLogin.addEventListener('click', (event) => {
-    overlayLogin.classList.add('is-hidden');
-  });
-}
+// if user clicked outsite of overlay (and the overlay is open) = close it
+const onBodyClick = event => {
+  const { target } = event;
+  const insideOverlay = closest(target, '.overlay-wrapper');
+  const insideNavbar = closest(target, '.navbar');
+  const isOpen = overlayWrapper.classList.contains('is-active');
+  if (insideOverlay || insideNavbar) return;
 
-if (openSignup) {
-  openSignup.addEventListener('click', (event) => {
-    overlaySignup.classList.remove('is-hidden');
-  });
-}
 
-if (closeSignup) {
-  closeSignup.addEventListener('click', (event) => {
-    overlaySignup.classList.add('is-hidden');
-  });
-}
+  if (isOpen) {
+    overlayWrapper.classList.remove('is-active');
+    // hide all overlays (reset)
+    overlays.forEach(overlay => overlay.classList.add('is-hidden'));
+  }
+};
 
-if (openEdit) {
-  openEdit.addEventListener('click', (event) => {
-    overlayEdit.classList.remove('is-hidden');
-  });
-}
+if (overlayWrapper) {
+  overlayBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = document.querySelector(`#${button.dataset.target}`);
+      // activate overlay wrapper
+      overlayWrapper.classList.add('is-active');
+      // hide all overlays (reset)
+      overlays.forEach(overlay => overlay.classList.add('is-hidden'));
 
-if (closeEdit) {
-  closeEdit.addEventListener('click', (event) => {
-    overlayEdit.classList.add('is-hidden');
+      // show the target overlay
+      target.classList.remove('is-hidden');
+    });
   });
+
+  overlayCloseBtn.addEventListener('click', (event) => {
+    // hide overlay wrapper
+    overlayWrapper.classList.remove('is-active');
+    // hide all overlays (reset)
+    overlays.forEach(overlay => overlay.classList.add('is-hidden'));
+  });
+
+  window.addEventListener('click', onBodyClick);
 }
