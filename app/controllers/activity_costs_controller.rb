@@ -1,6 +1,6 @@
 class ActivityCostsController < ApplicationController
 before_action :set_activity_cost, only: [:edit, :update]
-skip_before_action :authenticate_user!, only: [:new]
+skip_before_action :authenticate_user!, only: [:new, :create]
 
   def new
     @group = Group.find(params[:group_id])
@@ -14,7 +14,7 @@ skip_before_action :authenticate_user!, only: [:new]
     @group = Group.find(params[:group_id])
     @activity_cost = ActivityCost.new(activity_cost_params)
     @activity_cost.group = @group
-    # @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
+    @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
 
     if @activity_cost.save
       redirect_to new_activity_cost_split_path(@activity_cost), notice: 'Activity Cost was successfully created.'
