@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @group = Group.new(group_params)
     @group.user = current_user if user_signed_in?
     if @group.save
@@ -38,13 +39,13 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    redirect_to groups_path
+    redirect_to new_group_path
   end
 
   private
 
   def set_group
-    @group = Groups.find(params[:id])
+    @group = Group.find(params[:id])
     authorize @group
   end
 
