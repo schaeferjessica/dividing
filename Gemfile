@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
 gem 'turbolinks_render'
+gem 'turbolinks', '~> 5.2.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

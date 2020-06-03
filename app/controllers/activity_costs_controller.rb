@@ -3,7 +3,7 @@ before_action :set_activity_cost, only: [:edit, :update]
 skip_before_action :authenticate_user!, only: [:new]
 
   def new
-    @group = Group.find(group_id = 1)
+    @group = Group.find(params[:group_id])
     @members = @group.members
     @activity_cost = ActivityCost.new
     authorize @activity_cost
@@ -11,7 +11,7 @@ skip_before_action :authenticate_user!, only: [:new]
   end
 
   def create
-    @group = Group.find(group_id = 1)
+    @group = Group.find(params[:group_id])
     @activity_cost = ActivityCost.new(activity_cost_params)
     @activity_cost.group = @group
 
@@ -24,7 +24,7 @@ skip_before_action :authenticate_user!, only: [:new]
   end
 
   def edit
-    @group = Group.find(group_id = 1)
+    @group = Group.find(params[:group_id])
     @members = @group.members
   end
 
