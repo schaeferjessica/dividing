@@ -1,7 +1,7 @@
 <div class="container page-3 m-3 px-3">
   <div class="activity-form">
 
-<%= simple_form_for @activity_cost do |f| %>
+<%= simple_form_for [@group, @activity_cost] do |f| %>
   <div class="form-wrapper">
     <%= f.input :actual_cost, label: 'Total amount paid', placeholder: '👉 please type the the total amount here ..' %>
     <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
