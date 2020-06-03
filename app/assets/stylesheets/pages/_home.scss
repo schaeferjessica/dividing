@@ -1,15 +1,17 @@
 .home {
+  display: flex;
   background-color: $base-color;
   min-height: 100vh;
 
-  .name-wrapper,
-  .password-wrapper {
+  .context {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .form-group {
-      flex: 0 0 48%;
-    }
+  h2 {
+    margin: 50px;
   }
 
   .form-actions {

@@ -1,113 +1,123 @@
-<section class="home">
-
+<!-- navbar -->
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="btn">
     <% if !user_signed_in? %>
       <button class="btn-light btn-sign-in">sign in</button>
       <button class="btn-light btn-sign-up">sign up for free</button>
     <% end %>
-    <button class="btn-minimal">contact</button>
-    <button class="btn-minimal">impressum</button>
+    <% if user_signed_in? %>
+      <button class="btn-light">saved groups & splits</button>
+    <% end %>
   </div>
+</div>
 
-  <div class="context">
-    <div class="inner">
-      <h1><span class="heading">dividing your - </span><span id="banner-typed-text"></span></h1>
-      <h2>Keep track of shared expenses, balances, and who owes who. Dividing the cost and share via link 😇</h2>
-      <div class="btn-center">
-        <%= link_to "start dividing", new_group_path, class: "btn-start"%>
-      </div>
-    </div>
-
-    <a role="button" class="cookie"><span>🍪</span>accept me </a>
-
-    <div id="sign-up-container" class="overlay is-hidden">
-      <button class="close-signup">𝗫</button>
-      <h2>Create your account - save your team to your account and pay directly via paypal.</h2>
-      <%= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
-        <%= f.error_notification %>
-        <div class="form-inputs">
-          <div class="name-wrapper">
-            <%= f.input :first_name,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "first name" }%>
-            <%= f.input :last_name,
-                        required: false,
-                        autofocus: true,
-                        input_html: { autocomplete: "last name" }%>
-          </div>
-          <%= f.input :username,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "username" }%>
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <div class="password-wrapper">
-            <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
-          </div>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "create my accout", class:"btn-dark" %>
-        </div>
-      <% end %>
-    </div>
-
-    <div id="log-in-container" class="overlay is-hidden">
-      <button class="close-login">𝗫</button>
-      <h2>welcome back 👋</h2>
-      <%= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      required: false,
-                      input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "log in", class:"btn-dark" %>
-        </div>
-      <% end %>
-    </div>
-
-    <div id="edit-container" class="overlay is-hidden">
-      <h2>Edit Your Profile</h2>
-      <button class="close-edit">𝗫</button>
-      <%= simple_form_for(User.new, as: :user, url: registration_path(:user), html: { method: :put }) do |f| %>
-        <%= f.error_notification %>
-        <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true %>
-          <%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <!-- <p>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></p> -->
-          <%# end %>
-          <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :current_password,
-                      hint: "we need your current password to confirm your changes",
-                      required: true,
-                      input_html: { autocomplete: "current-password" } %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Update" %>
-        </div>
-      <% end %>
-      <h3>Cancel my account</h3>
-      <p>Unhappy? <%= link_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<!-- home page -->
+<section class="home">
+  <div class="context container">
+    <h1><span class="heading">dividing your - </span><span id="banner-typed-text"></span></h1>
+    <h2>Keep track of shared expenses, balances, and who owes who. Dividing the cost and share via link 😇</h2>
+    <div class="btn-center">
+      <%= link_to "start dividing", new_group_path, class: "btn-dark"%>
     </div>
   </div>
 </section>
+
+<!-- profile -->
+<div id="edit-container" class="overlay is-hidden">
+  <h2>Edit Your Profile</h2>
+  <button class="close-edit">𝗫</button>
+  <%= simple_form_for(User.new, as: :user, url: registration_path(:user), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %>
+      <%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <!-- <p>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></p> -->
+      <%# end %>
+      <%= f.input :password,
+                  hint: "leave it blank if you don't want to change it",
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :current_password,
+                  hint: "we need your current password to confirm your changes",
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Update" %>
+    </div>
+  <% end %>
+  <h3>Cancel my account</h3>
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
+
+<!-- cookie -->
+<a role="button" class="cookie"><span>🍪</span>accept me </a>
+
+<!-- overlay sign in -->
+<div id="sign-up-container" class="overlay is-hidden">
+  <button class="close-signup">𝗫</button>
+  <h2>Create your account - save your team to your account and pay directly via paypal.</h2>
+  <%= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <div class="name-wrapper">
+        <%= f.input :first_name,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "first name" }%>
+        <%= f.input :last_name,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "last name" }%>
+      </div>
+      <%= f.input :username,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "username" }%>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <div class="password-wrapper">
+        <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "create my accout", class:"btn-dark" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- overlay sign up -->
+<div id="log-in-container" class="overlay is-hidden">
+  <button class="close-login">𝗫</button>
+  <h2>welcome back 👋</h2>
+  <%= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: false,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+      <%= f.input :password,
+                  required: false,
+                  input_html: { autocomplete: "current-password" } %>
+      <%= f.input :remember_me, as: :boolean %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "log in", class:"btn-dark" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- footer -->
+<button class="btn-minimal">contact</button>
+<button class="btn-minimal">impressum</button>
