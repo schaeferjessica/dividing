@@ -7,3 +7,5 @@ import "bootstrap";
 import * as Overlay from '../components/overlay';
 
 export { Overlay };
+
+import "controllers"

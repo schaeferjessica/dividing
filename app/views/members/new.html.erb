@@ -1,12 +1,16 @@
-<h2>spliting it between</h2>
-<p>here you can add all the names of the Group you would  like to split it between.</p>
+<div class="container">
+	<h2>spliting it between</h2>
+	  <p>here you can add all the names of the Group you would  like to split it between.</p>
 
-<%= simple_form_for [@group, @member] do |f| %>
-<% f.hidden_field :group_id, value: params[:group_id] %>
-<%= f.input :name, placeholder: ' 👉 please type one name and press + or enter to add more ..' %>
-<%= f.submit '+' %>
-<% end %>
-
-<% @group.member.each do |member| %>
-  <%= member.name %>
-<% end %>
+		<%= simple_form_for [@group, @member] do |f| %>
+			<% f.hidden_field :group_id, value: params[:group_id] %>
+			<%= f.input :name, placeholder: ' 👉 please type one name and press + or enter to add more ..' %>
+			<%= f.submit '+' %>
+		<% end %>
+	<div>
+		<% @group.members.each do |member| %>
+		  <p><%= member.name %></p>
+		  <%= link_to "🗑", group_member_path(@group, member), method: :delete %>
+		<% end %>
+	</div>
+</div>
