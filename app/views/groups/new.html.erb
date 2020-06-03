@@ -1,6 +1,24 @@
-<h2>name your group</h2>
-<p>here you can choose a title</p>
-<%= simple_form_for @group do |f| %>
-<%= f.input :group_name, placeholder: '👉🏼 best team ever' %>
-<%= f.submit '💾SAVE GROUP TO MY ACCOUNT' %>
-<% end %>
+<div class="container">
+	<h2>name your group</h2>
+	<p>here you can choose a title</p>
+	  <div>
+		<%= simple_form_for @group do |f| %>
+		<%= f.input :group_name, placeholder: '👉🏼 best team ever' %>
+		<%= f.submit '💾SAVE YOUR GROUP' %>
+		<% end %>
+	  </div>
+	  <div class="btn-wrapper">
+		<%= link_to "Back", root_path %>
+	  </div>
+	  <br>
+   <div>
+	  <h2>saved groups</h2>
+	  <p>here you can see your saved groups and start a new split.</p>
+	    <% if current_user %>
+	      <% current_user.groups.each do |group| %>
+	        <%= link_to group.group_name, new_group_activity_cost_path(group) %> 
+	        <%= link_to "🗑", group_path(group), method: :delete %>     
+	      <% end %>
+   </div>
+    <% end %>
+</div>
