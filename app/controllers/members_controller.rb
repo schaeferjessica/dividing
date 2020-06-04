@@ -12,7 +12,7 @@ class MembersController < ApplicationController
     @group = Group.find(params[:group_id])
     if @member.save
       GroupMember.create(group: @group, member: @member)
-      redirect_to new_group_member_path(@group), notice: 'Member was successfully added.'
+      redirect_to request.referrer, notice: 'Member was successfully added.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class MembersController < ApplicationController
     @group = Group.find(params[:group_id])
     authorize @group
     @member.destroy
-    redirect_to new_group_member_path(@group)
+    redirect_to request.referrer
   end
 
   private

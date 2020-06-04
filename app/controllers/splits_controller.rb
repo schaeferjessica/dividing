@@ -27,7 +27,6 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create]
       #   if member.name == @activity_cost.paid_by
       #     @split.status = true
       #   end
-
       #   unless @split.save
       #     render :new
       #   end
@@ -37,12 +36,11 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create]
     #   split_cost(@split.split_type)
       # @activity_cost.split_type = 'individualy'
       # @activity_cost.save
-
       # @members.each do |member|
       #   @split.activity_cost = @activity_cost
-      #   @split.member = member.id
+      #   @split.member = member
       #   @split.split_type = 'individualy'
-
+      #   @split.individual_balances = 0
       #   if member.name == @activity_cost.paid_by
       #     @split.status = true
       #   end

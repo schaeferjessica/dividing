@@ -45,15 +45,11 @@
   flex-direction: column;
   padding: 25px;
   overflow: auto;
-  height: 100%;
+  height: calc(100% - 60px);
   justify-content: center;
 
   .form-inputs {
-    margin: 40px 0;
-  }
-
-  h2 {
-    margin-top: 20px;
+    margin: 35px 0;
   }
 
   .form-check {

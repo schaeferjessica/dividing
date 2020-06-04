@@ -1,9 +1,10 @@
 class GroupsController < ApplicationController
-    before_action :set_group, only: [ :show, :edit, :update, :destroy]
+    before_action :set_group, only: [:show, :edit, :update, :destroy]
     skip_before_action :authenticate_user!, only: [ :new, :create ]
 
   def index
      @groups = policy_scope(Group).order(created_at: :desc)
+     authorize @groups
   end
 
   def show
@@ -27,11 +28,12 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @member = Member.new
   end
 
   def update
     if @group.update(group_params)
-      redirect_to groups_path, notice: 'Group was successfully updated.'
+      redirect_to edit_group_path, notice: 'Group was successfully updated.'
     else
       render :edit
     end
@@ -39,7 +41,7 @@ class GroupsController < ApplicationController
 
   def destroy
     @group.destroy
-    redirect_to new_group_path
+    redirect_to request.referrer
   end
 
   private
