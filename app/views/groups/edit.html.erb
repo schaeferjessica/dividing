@@ -3,7 +3,7 @@
 	<h3 class="font-weight-normal mt-3"><%= @group.group_name %></h3>
 	<div>
 	  <%= simple_form_for @group do |f| %>
-		  <%= f.input :group_name, placeholder: '👉🏼 update your team name' %>
+		  <%= f.input :group_name, label: false, placeholder: '👉🏼 update your team name' %>
           <%= f.submit '💾 save', class:"btn-light" %>
       <% end %>
     </div>
@@ -17,12 +17,16 @@
 	    <div class="form-member">
 	     <%= simple_form_for [@group, @member], remote: true do |f| %>
 		   <% f.hidden_field :group_id, value: params[:group_id] %>
-		   <%= f.input :name, placeholder: ' 👉 add a new member and press + or enter..' %>
+		   <%= f.input :name, label: false, placeholder: ' 👉 add a new member and press + or enter..' %>
 		   <%= f.submit '+', class:"btn-light p-1 border border-normal cross" %>
 	     <% end %>
 	    </div>
 	<div class="btn-wrapper mt-3">
 	  <%= link_to "back", groups_path, class:"btn-dark" %>
+	  <% if @group.members.any? %>
 	  <%= link_to "start a new split with this team ", new_group_activity_cost_path(@group), class:"btn-light" %> 
+	  <% else %>
+		  <button class="btn-light">start a new split with this team</button>
+	   <% end %>
 	</div>
 </div>

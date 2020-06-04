@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container mt-3">
   <h1><span>2 </span>names spliting it between<sup> *</sup></h1>
 	  <p>here you can add all the names of the Group you would  like to split it between.</p>
        <div class="form-member">
 		  <%= simple_form_for [@group, @member], remote: true do |f| %>
 			<% f.hidden_field :group_id, value: params[:group_id] %>
-			    <%= f.input :name, placeholder: ' 👉 please type one name and press + or enter to add more ..' %>
-			   <%= f.submit '+', class:"btn-light p-1 border border-normal cross p-1"%>
+			    <%= f.input :name, label: false, placeholder: ' 👉 please type one name and press + or enter to add more ..' %>
+			   <%= f.submit '+', class:"btn-light border border-normal cross p-1"%>
 			  <div class="d-flex">
 				<% @group.members.each do |member| %>
 				  <div class="btn-group">
