@@ -37,8 +37,9 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create]
 
       @members.each do |member|
         @split.activity_cost = @activity_cost
-        @split.member = member.id
+        @split.member = member
         @split.split_type = 'individualy'
+        @split.individual_balances = 0
 
         if member.name == @activity_cost.paid_by
           @split.status = true
