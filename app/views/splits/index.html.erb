@@ -9,7 +9,7 @@
   <%= @splits.each do |split| %>
     <div>
       <p><%= split.member.name %></p>
-      <p>please pay <%= split.activity_cost.paid_by split.individual_balances %></p>
+      <p>please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></p>
       <% if split.status = false %>
         <p>outstanding</p>
       <% else %>
