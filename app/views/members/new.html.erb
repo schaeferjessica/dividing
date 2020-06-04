@@ -1,27 +1,31 @@
-<div class="container mt-3">
+<div class="members">
+  <div class="container">
   <h1><span>2 </span>names spliting it between<sup> *</sup></h1>
-	  <p>here you can add all the names of the Group you would  like to split it between.</p>
+    <p>here you can add all the names of the Group you would  like to split it between.</p>
        <div class="form-member">
-		  <%= simple_form_for [@group, @member], remote: true do |f| %>
-			<% f.hidden_field :group_id, value: params[:group_id] %>
-			    <%= f.input :name, label: false, placeholder: ' 👉 please type one name and press + or enter to add more ..' %>
-			   <%= f.submit '+', class:"btn-light border border-normal cross p-1"%>
-			  <div class="d-flex">
-				<% @group.members.each do |member| %>
-				  <div class="btn-group">
-			       <button type="button" class="btn btn-light p-1 border border-normal"><%= member.name %></button>
-				   <button type="button" class="btn btn-light p-1 border border-normal"><%= link_to "🗑", group_member_path(@group, member), remote: true, method: :delete %></button>
-				  </div>
-				<% end %>
-			  </div>
-				<div class="btn-wrapper mt-3">
-				  <%= link_to "back", new_group_path, class:"btn-light" %>
-					  <% if @group.members.any? %>
-					    <%= link_to "next", new_group_activity_cost_path(@group), class:"btn-light" %>
-					  <% else %>
-					    <button class="btn-light">Next</button>
-					  <% end %>
-				</div>
-		<% end %>
-	</div>
+        <%= simple_form_for [@group, @member], remote: true do |f| %>
+        <% f.hidden_field :group_id, value: params[:group_id] %>
+        <div class="wrapper">
+          <%= f.input :name, label: false, placeholder: ' 👉 please type one name and press + or enter to add more ..' %>
+          <%= f.submit '+', class:"cross"%>
+        </div>
+        <div class="d-flex">
+        <% @group.members.each do |member| %>
+          <div class="btn-group">
+            <button type="button" class=""><%= member.name %></button>
+            <button type="button" class=""><%= link_to "🗑", group_member_path(@group, member), remote: true, method: :delete %></button>
+          </div>
+        <% end %>
+        </div>
+        <div class="btn-wrapper">
+          <%= link_to "back", new_group_path, class:"btn-light" %>
+            <% if @group.members.any? %>
+              <%= link_to "next", new_group_activity_cost_path(@group), class:"btn-light" %>
+            <% else %>
+              <button class="btn-light">Next</button>
+            <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>
 </div>

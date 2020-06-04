@@ -1,4 +1,4 @@
-.new {
+.members {
   background-color: $base-color;
   min-height: 100vh;
   display: flex;
@@ -21,11 +21,22 @@
     border-radius: 0;
   }
 
-  label {
-  display: none;
+  .wrapper {
+    position: relative;
   }
 
-  .group-name {
-    margin: 20px 0;
+  .cross {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 18px;
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
   }
 }
