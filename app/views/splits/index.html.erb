@@ -1,5 +1,5 @@
 <div class="container">
-  <h4 class="heading">Hey <%= @activity_cost.group.group_name %>, let's split the cost between us <%= @activity_cost.split_type %></h4>
+  <p class="heading">Hey <%= @activity_cost.group.group_name %>, let's split the cost between us <%= @activity_cost.split_type %></p>
   <div id="splits-index-container">
     <div id="splits">
       <% @splits.each do |split| %>
