@@ -1,0 +1,42 @@
+.activity-cost-new {
+  background-color: $black-color;
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 80px;
+
+  h1,
+  h2,
+  p  {
+      color: $white-color;
+  }
+
+  label {
+    display: none;
+  }
+
+  .form-control {
+    border-bottom: 1px solid $white-color;
+    border-radius: 0;
+    margin: 35px 0;
+    background-color: $black-color;
+    color: $white-color;
+
+    &::placeholder {
+      opacity: 1;
+      color: $white-color;
+      font-weight: 300;
+    }
+  }
+
+  .form-control:focus {
+    color: $white-color;
+    background-color: transparent;
+    border-color: $white-color;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px solid $white-color;
+    border-radius: 0;
+  }
+}

@@ -55,8 +55,31 @@
   padding: 8px 10px;
 }
 
-// .btn-color {
-// }
+.btn-color {
+  font-family: "Jost", sans-serif;
+  font-size: 14px;
+  padding: 10px 12px;
+  margin: 5px;
+  background-color: $base-color;
+  border-radius: 5px;
+  color: $black-color;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background-color: $blue-color;
+    color: $black-color;
+  }
+
+  &:focus {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: transparent;
+    box-shadow: none;
+  }
+}
 
 .btn-minimal {
   font-family: "Jost", sans-serif;
