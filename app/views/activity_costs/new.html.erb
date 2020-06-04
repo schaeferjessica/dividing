@@ -1,20 +1,20 @@
 <div class="container page-3 m-3 px-3">
   <div class="activity-form">
 
-<%= simple_form_for [@group, @activity_cost] do |f| %>
-  <div class="form-wrapper">
-    <%= f.input :actual_cost, label: 'Total amount paid', placeholder: '👉 please type the the total amount here ..' %>
-    <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
-    <%= f.input :employer_contribution, label: 'Employer contribution or Discount', placeholder: '👉 Employer contribution or discount (optional)..' %>
-    <%= f.input :currency, label: 'Currency', placeholder: 'EUR' %>
-    <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
-  </div>
+  <%= simple_form_for [@group, @activity_cost] do |f| %>
+    <div class="form-wrapper">
+      <%= f.input :actual_cost, label: 'Total amount paid', placeholder: '👉 please type the the total amount here ..' %>
+      <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
+      <%= f.input :employer_contribution, label: 'Employer contribution or Discount', placeholder: '👉 Employer contribution or discount (optional)..' %>
+      <%= f.input :currency, label: 'Currency', placeholder: 'EUR' %>
+      <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
+    </div>
 
-  <div class="btn-wrapper">
-    <%= link_to "Back",  class: "btn btn-primary" %>
-    <%= f.submit "Next", class: "btn btn-primary" %>
+    <div class="btn-wrapper">
+      <%= link_to "back", class:"btn-light" %>
+      <%= f.submit "next", class:"btn-light" %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 
 </div>

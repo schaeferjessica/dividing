@@ -7,6 +7,8 @@
   background-color: transparent;
   border-radius: 5px;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 
   &:hover {
     background-color: $black-color;
@@ -23,6 +25,8 @@
   border-radius: 5px;
   color: #fff;
   border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 
   &:hover {
     background-color: $blue-color;
