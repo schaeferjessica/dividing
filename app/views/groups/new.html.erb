@@ -5,10 +5,10 @@
   <div>
     <%= simple_form_for @group do |f| %>
 		  <%= f.input :group_name, placeholder: '👉🏼 best team ever' %>
-      <div class="btn-wrapper">
-        <%= f.submit '💾 save your group', class:"btn-light" %>
-        <%= link_to "Back", root_path, class:"btn-light", data: { turbolinks: false } %>
-      </div>
+        <div class="btn-wrapper">
+          <%= f.submit '💾 save and go to the next step', class:"btn-light" %>
+          <%= link_to "Back", root_path, class:"btn-dark", data: { turbolinks: false } %>
+        </div>
 		<% end %>
 	</div>
 <br>
