@@ -1,33 +1,55 @@
-<div class="container">
-  <p class="heading">Hey <%= @activity_cost.group.group_name %>, let's split the cost between us <%= @activity_cost.split_type %></p>
-  <div id="splits-index-container">
-    <div id="splits">
-      <% @splits.each do |split| %>
-        <% if split.member.name == split.activity_cost.paid_by %>
-          <div class="split-card">
-            <p class="split-member"><%= split.member.name %></p>
-            <p>you spent <%= split.individual_balances %> <%= split.activity_cost.currency %></p>
-            <p>paid</p>
-          </div>
-        <% else %>
-          <div class="split-card">
-            <p class="split-member"><%= split.member.name %></p>
-            <p>please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></p>
-            <% if split.status = false %>
-              <p>outstanding</p>
+<div id="splits-index-page">
+  <div class="container">
+    <p id="splits-index-heading">Okay members of <%= @activity_cost.group.group_name %>! Let's split the cost between us <strong><%= @activity_cost.split_type %></strong></p>
+
+    <div id="splits-index-container">
+      <div id="splits">
+        <div class="row">
+          <% @splits.each do |split| %>
+            <% if split.member.name == split.activity_cost.paid_by %>
+              <div class="col-8">
+                <p class="split-member"><%= split.member.name %></p>
+                <div class="collapse" id="collapseExample">
+                  <p>you spent <%= split.individual_balances %> <%= split.activity_cost.currency %> paid</p>
+                </div>
+              </div>
+              <div class="col-4 d-flex">
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> + </a>
+              </div>
+              <hr style="width:70%;text-align:left;margin-left:0">
             <% else %>
-              <p>paid</p>
+              <div class="col-8">
+                <p class="split-member"><%= split.member.name %></p>
+                <div class="collapse" id="collapseExample">
+                  <p>please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %>
+                  <% if split.status = false %>
+                    outstanding
+                  <% else %>
+                    paid
+                  <% end %>
+                  </p>
+                </div>
+              </div>
+              <div class="col-4 d-flex">
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> + </a>
+              </div>
+              <hr style="width:70%;text-align:left;margin-left:0">
             <% end %>
-          </div>
-        <% end %>
-      <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div id="splits-index-container-right">
+        <div id="activity-cost-info">
+          <p>Total cost: <%= @activity_cost.actual_cost %></p>
+          <p>subtracting cost - <%= @activity_cost.employer_contribution %></p>
+          <p>additional cost + <%= @activity_cost.service_tip %></p>
+          <p class="split-member">total amount: <%= @activity_cost.total_balance %></p>
+        </div>
+        <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
+        <button class="btn-dark">send link</button>
+      </div>
     </div>
-    <div id="activity-cost-info">
-      <p>Total cost: <%= @activity_cost.actual_cost %></p>
-      <p>subtracting cost - <%= @activity_cost.employer_contribution %></p>
-      <p>additional cost + <%= @activity_cost.service_tip %></p>
-      <p class="split-member">total amount: <%= @activity_cost.total_balance %></p>
-    </div>
+    <%= link_to "Back", new_activity_cost_split_path, class: "btn-light btn-overlay"%>
   </div>
-  <%= link_to "Back", new_activity_cost_split_path, class: "btn-light btn-overlay"%>
 </div>
