@@ -32,6 +32,14 @@
     background-color: $blue-color;
     color: $black-color;
   }
+
+  &:focus {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: transparent;
+    box-shadow: none;
+  }
 }
 
 .btn-big {
