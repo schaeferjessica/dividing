@@ -1,6 +1,6 @@
 h1 {
   font-family: $font-jost;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 44px;
   color: $black-color;
 }
@@ -24,4 +24,14 @@ p {
   font-weight: 400;
   font-size: 14px;
   color: $black-color;
+}
+
+span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+sup {
+  font-size: 20px;
+  font-weight: 400;
 }
