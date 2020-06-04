@@ -10,22 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_101140) do
+ActiveRecord::Schema.define(version: 2020_06_04_142809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activity_costs", force: :cascade do |t|
-    t.integer "actual_cost", default: 0
-    t.integer "service_tip", default: 0
-    t.integer "employer_contribution", default: 0
-    t.integer "total_balance", default: 0
+    t.float "actual_cost", default: 0.0
+    t.float "service_tip", default: 0.0
+    t.float "employer_contribution", default: 0.0
+    t.float "total_balance", default: 0.0
     t.string "currency"
     t.string "paid_by"
     t.string "split_type"
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "actual_cost_cents", default: 0, null: false
+    t.string "actual_cost_currency", default: "EUR", null: false
     t.index ["group_id"], name: "index_activity_costs_on_group_id"
   end
 
@@ -57,12 +59,14 @@ ActiveRecord::Schema.define(version: 2020_06_03_101140) do
   create_table "splits", force: :cascade do |t|
     t.bigint "activity_cost_id", null: false
     t.bigint "member_id", null: false
-    t.integer "individual_balances"
+    t.float "individual_balances", default: 0.0
     t.string "payment_type"
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "split_type"
+    t.integer "individual_balances_cents", default: 0, null: false
+    t.string "individual_balances_currency", default: "EUR", null: false
     t.index ["activity_cost_id"], name: "index_splits_on_activity_cost_id"
     t.index ["member_id"], name: "index_splits_on_member_id"
   end
