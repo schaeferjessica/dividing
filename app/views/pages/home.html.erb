@@ -18,8 +18,8 @@
         <p class="username">Jessica S</p>
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/jschaefer", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <button class="dropdown-item btn-edit">edit profile ✏️</button>
-          <%= link_to "log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <button class="dropdown-item btn-edit">edit your profile ✏️</button>
+          <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
     </div>
@@ -30,7 +30,7 @@
 <section class="home">
   <div class="context container">
     <h1><span class="heading">dividing your - </span><span id="banner-typed-text"></span></h1>
-    <h2>Keep track of shared expenses, balances, and who owes who. 😇</h2>
+    <h2>This is a dividing tool to keep track of shared Group expenses. 😇</h2>
     <div class="btn-center">
       <%= link_to "start dividing", new_group_path, class: "btn-dark btn-big"%>
     </div>
