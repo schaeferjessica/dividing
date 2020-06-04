@@ -1,0 +1,41 @@
+.accordion-wrapper {
+  margin: 35px 0;
+
+  sup {
+    font-size: 14px;
+  }
+}
+
+.accordion {
+  border-bottom: 1px solid black;
+
+  .acc-btn {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .acc-tabpanel {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .acc-tabpanel-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+
+  .action-wrapper {
+    display: flex;
+    align-items: center;
+
+    .btn-light {
+      margin-right: 10px;
+    }
+  }
+}

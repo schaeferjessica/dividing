@@ -11,6 +11,7 @@ label {
 
   &::placeholder {
     opacity: 1;
-    color: $blue-color;
+    color: $black-color;
+    font-weight: 300;
   }
 }
