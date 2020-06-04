@@ -1,20 +1,33 @@
 <div class="container">
-  <p>Hey <%= @activity_cost.group.group_name %>, let's split the cost between us <%= @activity_cost.split_type %></p>
-
-  <p>Total cost: <%= @activity_cost.actual_cost %></p>
-  <p>subtracting cost - <%= @activity_cost.employer_contribution %></p>
-  <p>additional cost + <%= @activity_cost.service_tip %></p>
-  <p>total amount: <%= @activity_cost.total_balance %></p>
-
-  <%= @splits.each do |split| %>
-    <div>
-      <p><%= split.member.name %></p>
-      <p>please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></p>
-      <% if split.status = false %>
-        <p>outstanding</p>
-      <% else %>
-        <p>paid</p>
+  <h4 class="heading">Hey <%= @activity_cost.group.group_name %>, let's split the cost between us <%= @activity_cost.split_type %></h4>
+  <div id="splits-index-container">
+    <div id="splits">
+      <% @splits.each do |split| %>
+        <% if split.member.name == split.activity_cost.paid_by %>
+          <div class="split-card">
+            <p class="split-member"><%= split.member.name %></p>
+            <p>you spent <%= split.individual_balances %> <%= split.activity_cost.currency %></p>
+            <p>paid</p>
+          </div>
+        <% else %>
+          <div class="split-card">
+            <p class="split-member"><%= split.member.name %></p>
+            <p>please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></p>
+            <% if split.status = false %>
+              <p>outstanding</p>
+            <% else %>
+              <p>paid</p>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-  <% end %>
+    <div id="activity-cost-info">
+      <p>Total cost: <%= @activity_cost.actual_cost %></p>
+      <p>subtracting cost - <%= @activity_cost.employer_contribution %></p>
+      <p>additional cost + <%= @activity_cost.service_tip %></p>
+      <p class="split-member">total amount: <%= @activity_cost.total_balance %></p>
+    </div>
+  </div>
+  <%= link_to "Back", new_activity_cost_split_path, class: "btn-light btn-overlay"%>
 </div>
