@@ -1,41 +1,41 @@
 <div class="container">
 	<h2>name your group</h2>
 	<p>here you can choose a title</p>
-	  <div>
-		<%= simple_form_for @group do |f| %>
+	<div>
+    <%= simple_form_for @group do |f| %>
 		  <%= f.input :group_name, placeholder: '👉🏼 best team ever' %>
-		  <%= f.submit '💾SAVE YOUR GROUP' %>
+        <div class="btn-wrapper">
+          <%= f.submit '💾 save your group', class:"btn-light" %>
+          <%= link_to "Back", root_path, class:"btn-light" %>
+        </div>
 		<% end %>
-	  </div>
-	  <div class="btn-wrapper">
-		<%= link_to "Back", root_path %>
-	  </div>
-	  <br>
-   <div>
+	</div>
+
+  <div>
 	  <h2>saved groups</h2>
 	  <p>here you can see your saved groups and start a new split.</p>
-	   <ul>
-	   	<div class="row">
-	   	  <div class="col-8">
-		    <% if current_user %>
-		      <% current_user.groups.each do |group| %>
-		        <li><%= link_to group.group_name, new_group_activity_cost_path(group) %> 
-		        <%= link_to "🗑", group_path(group), method: :delete %>
-		    <div class="collapse" id="collapseExample">
-		      <% group.members.each do |member| %>
-				<%= member.name %>
-		      <% end %> 
-		    </div>
-		  </div>
-		  <div class="col-4">
-		        <a class="btn btn-light" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> + </a>
-		           <div class="collapse" id="collapseExample">
-				     <%= link_to "start a new split with this team ", new_group_activity_cost_path(group), class:"btn btn-light" %></li>
-		            </div>  
-		      <% end %>
-		  </div>
-	    </div>
+    <ul>
+      <div class="row">
+        <div class="col-8">
+          <% if current_user %>
+            <% current_user.groups.each do |group| %>
+              <li><%= link_to group.group_name, new_group_activity_cost_path(group) %></li>
+		          <%= link_to "🗑", group_path(group), method: :delete %>
+		          <div class="collapse" id="collapseExample">
+		            <% group.members.each do |member| %>
+				          <%= member.name %>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-4">
+  		        <a class="btn-light" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> + </a>
+              <div class="collapse" id="collapseExample">
+  				      <%= link_to "start a new split with this team ", new_group_activity_cost_path(group), class:"btn-light" %></li>
+              </div>
+            </div>
+		     <% end %>
+	     </div>
 	   </ul>
    </div>
-    <% end %>
+  <% end %>
 </div>
