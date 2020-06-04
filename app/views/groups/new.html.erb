@@ -10,14 +10,14 @@
         </div>
 		<% end %>
 	</div>
-
+<br>
   <div>
-	  <h2>saved groups</h2>
-	  <p>here you can see your saved groups and start a new split.</p>
     <ul>
       <div class="row">
         <div class="col-8">
           <% if current_user %>
+              <h2>saved groups</h2>
+              <p>here you can see your saved groups and start a new split.</p>
             <% current_user.groups.each do |group| %>
               <li><%= link_to group.group_name, new_group_activity_cost_path(group) %></li>
 		          <%= link_to "🗑", group_path(group), method: :delete %>
