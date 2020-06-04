@@ -1,17 +1,15 @@
-<div class="new">
+<div class="groups-new">
   <div class="container">
-    <div class="label-none">
-      <h1><span>1 </span>name your group<sup> *</sup></h1>
-      <p>here you can choose a title</p>
-      <%= simple_form_for @group do |f| %>
-  		  <%= f.input :group_name, lable: false, placeholder: '👉🏼 best team ever' %>
-        <div class="btn-wrapper">
-          <%= link_to "Back", root_path, class:"btn-light", data: { turbolinks: false } %>
-          <%= f.submit '💾 save and go to the next step', class:"btn-light", data: { turbolinks: false } %>
-        </div>
-  		<% end %>
-  	</div>
-<br>
+    <h1><span>1 </span>name your group<sup> *</sup></h1>
+    <p>here you can choose a title</p>
+    <%= simple_form_for @group do |f| %>
+		  <%= f.input :group_name, lable: false, placeholder: '👉🏼 best team ever' %>
+      <div class="btn-wrapper">
+        <%= link_to "back", root_path, class:"btn-light", data: { turbolinks: false } %>
+        <%= f.submit '💾 save and go to the next step', class:"btn-light", data: { turbolinks: false } %>
+      </div>
+		<% end %>
+
   <div class="accordion-wrapper">
     <% if current_user %>
       <h2 class="font-weight-normal">saved groups<sup> *</sup></h2>
