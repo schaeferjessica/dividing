@@ -1,7 +1,23 @@
-#splits {
+#splits-index-page {
+  background-color: $base-color;
+  min-height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-grow: 0.5;
-  margin: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+#splits-index-heading {
+  padding-bottom: 70px;
+  font-size: 20px;
+}
+
+#splits {
+
+}
+
+.row {
+  width: 800px;
 }
 
 #splits-index-container {
@@ -15,4 +31,7 @@
 .split-member {
   font-weight: bold;
   font-size: 20px;
+}
+
+#splits-index-container-right {
 }
