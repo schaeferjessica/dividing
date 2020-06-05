@@ -1,8 +1,12 @@
-  .btn-wrapper {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-  }
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+}
+
+.text-thin {
+  font-weight: 300;
+}

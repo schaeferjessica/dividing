@@ -10,8 +10,31 @@
   align-items: center;
   padding-bottom: 80px;
 
-  .heading {
-  padding-bottom: 70px;
-  font-size: 20px;
+  .sum {
+    margin: 40px 0;
+  }
+
+  .total {
+    font-weight: normal;
+  }
+
+  .subtracting,
+  .additional {
+    font-size: 12px;
+  }
+
+  .balance {
+    font-weight: 400;
+    font-size: 22px;
+  }
+
+  .btn-outstanding {
+    color: $red-color;
+    border-color: $red-color;
+  }
+
+  .btn-paid {
+    color: $blue-color;
+    border-color: $blue-color;
   }
 }
