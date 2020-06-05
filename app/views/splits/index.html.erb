@@ -1,6 +1,6 @@
 <div class="splits-index">
   <div class="container">
-    <p class"heading">Okay members of <%= @activity_cost.group.group_name %>! Let's split the cost between us <strong><%= @activity_cost.split_type %></strong></p>
+    <p class="heading">Okay members of <%= @activity_cost.group.group_name %>! Let's split the cost between us <strong><%= @activity_cost.split_type %></strong></p>
 
       <% @splits.each do |split| %>
         <% if split.member.name == split.activity_cost.paid_by %>
@@ -43,9 +43,9 @@
 
               <div class="action-wrapper">
                 <% if split.status = false %>
-                  <button class="btn-light btn-small btn-outstanding"> outstanding</button>
-                <% else %>
                   <button class="btn-light btn-small btn-paid"> paid</button>
+                <% else %>
+                  <button class="btn-light btn-small btn-outstanding"> outstanding</button>
                 <% end %>
               </div>
             </div>
