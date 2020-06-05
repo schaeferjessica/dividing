@@ -22,7 +22,7 @@
             <%#= link_to group.group_name, new_group_activity_cost_path(group) %>
             <button class="acc-btn">
               <span><%= group.group_name %></span>
-              <span class="btn-light p-1 border border-normal cross"> + </span>
+              <span> + </span>
             </button>
           </div>
 
@@ -30,16 +30,16 @@
             <div class="acc-tabpanel-inner">
               <div class="text-thin">
                 <% group.members.each do |member| %>
-                <div class="btn btn-light p-1 border border-normal">
+                <div>
                   <%= member.name %>
                 </div>
                 <% end %>
               </div>
 
               <div class="action-wrapper">
+                <%= link_to "Edit", edit_group_path(group), class:"btn-light btn-small" %>
+                <%= link_to "🗑", group_path(group), method: :delete, class:"btn-light btn-small" %>
                 <%= link_to "start a new split with this team ", new_group_activity_cost_path(group), class:"btn-light btn-small" %>
-                <%= link_to "Edit", edit_group_path(group), class:"btn-dark font-weight-light p-1" %>
-                <%= link_to "🗑", group_path(group), method: :delete %>
               </div>
             </div>
           </div>
