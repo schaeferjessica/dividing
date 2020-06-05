@@ -1,7 +1,7 @@
 <div class="members">
   <div class="container">
   <h1><span>2 </span>names spliting it between<sup> *</sup></h1>
-    <p>here you can add all the names of the Group you would  like to split it between.</p>
+    <p>add the names of everyone in the group. Don't forget to include yourself!</p>
        <div class="form-member">
         <%= simple_form_for [@group, @member], remote: true do |f| %>
         <% f.hidden_field :group_id, value: params[:group_id] %>

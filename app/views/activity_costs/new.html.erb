@@ -4,15 +4,15 @@
     <%= simple_form_for [@group, @activity_cost] do |f| %>
       <div class="form-wrapper">
         <%= f.input :actual_cost, label: 'Total amount paid', placeholder: '👉 please type the the total amount here ..' %>
-        <h2>total cost paid by<sup> *</sup></h2>
+        <h2>total cost was paid by<sup> *</sup></h2>
         <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
-        <h2>adding cost</h2>
-        <p class="text-thin">here you can add an additional cost like a tipp.</p>
+        <h2>additional costs</h2>
+        <p class="text-thin">here you can add an additional cost like a tip.</p>
         <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
-        <h2>subtracting cost</h2>
-        <p class="text-thin">here you can take away the amount that you get as a contribution what don’t need to get split.</p>
+        <h2>cost reductions</h2>
+        <p class="text-thin">here you can subtract an amount that's already been paid.</p>
         <%= f.input :employer_contribution, label: 'Employer contribution or Discount', placeholder: '👉 Employer contribution or discount (optional)..' %>
-        <%= f.input :currency, label: 'Currency', placeholder: 'EUR' %>
+        <%= f.input :currency, label: 'Currency', placeholder: '€' %>
       </div>
       <div class="btn-wrapper">
         <%= link_to "back", root_path, class:"btn-color", data: { turbolinks: false }  %>
