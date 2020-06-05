@@ -12,14 +12,23 @@
       color: $white-color;
   }
 
+  h1 {
+    margin: 10px 0;
+  }
+
+  p  {
+    font-size: 12px;
+  }
+
   label {
     display: none;
   }
 
   .form-control {
+    font-size: 14px;
     border-bottom: 1px solid $white-color;
     border-radius: 0;
-    margin: 35px 0;
+    margin-bottom: 40px;
     background-color: $black-color;
     color: $white-color;
 
@@ -32,11 +41,26 @@
 
   .form-control:focus {
     color: $white-color;
-    background-color: transparent;
+    background-color: $black-color;
     border-color: $white-color;
     outline: 0;
     box-shadow: none;
     border-bottom: 1px solid $white-color;
     border-radius: 0;
+  }
+
+    select {
+    border: none;
+    background-color: $black-color;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 14px;
+    -webkit-appearance: none; // hide arrow for chrome
+    -moz-appearance: none; // hide arrow for firefox
+  }
+
+    option {
+    background-color: $black-color;
+    padding: 10px 0;
+    margin: 10px 0;
   }
 }

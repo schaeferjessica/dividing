@@ -3,6 +3,11 @@ h1 {
   font-weight: 300;
   font-size: 44px;
   color: $black-color;
+
+  sup {
+    font-size: 25px;
+    font-weight: 400;
+  }
 }
 
 h2 {
@@ -10,6 +15,11 @@ h2 {
   font-weight: 300;
   font-size: 24px;
   color: $black-color;
+
+  sup {
+    font-size: 15px;
+    font-weight: 400;
+  }
 }
 
 h3 {
@@ -28,11 +38,6 @@ p {
 
 span {
   font-size: 14px;
-  font-weight: 400;
-}
-
-sup {
-  font-size: 20px;
   font-weight: 400;
 }
 
