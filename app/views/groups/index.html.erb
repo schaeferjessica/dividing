@@ -1,37 +1,43 @@
 <div class="groups-index">
   <div class="container">
+
     <div class="accordion-wrapper">
       <% if current_user %>
-        <h2 class="font-weight-normal">saved groups<sup>*</sup></h2>
+        <h2>saved groups<sup>*</sup></h2>
           <p class="text-thin">here you can see your saved groups and start a new split.</p>
-                    <% current_user.groups.each do |group| %>
-                    <div class="accordion">
-                      <div class="acc-tab">
-                        <button class="acc-btn">
-                          <span><%= group.group_name %></span>
-                          <span class="btn-light p-1 border border-normal cross"> + </span>
-                        </button>
-                      </div>
 
-          		        <div class="acc-tabpanel">
-                        <div class="acc-tabpanel-inner">
-                          <div class="text-thin">
-          		              <% group.members.each do |member| %>
-                               <div class="btn btn-light p-1 border border-normal">
-              				         <%= member.name %>
-                               </div>
-                            <% end %>
+          <% current_user.groups.each do |group| %>
+            <div class="accordion">
+              <div class="acc-tab">
+                <button class="acc-btn">
+                  <span><%= group.group_name %></span>
+                  <span> + </span>
+                </button>
+              </div>
+
+  		        <div class="acc-tabpanel">
+                <div class="acc-tabpanel-inner">
+
+                  <div class="text-thin">
+  		              <% group.members.each do |member| %>
+                       <div>
+      				         <%= member.name %>
                        </div>
-  		              <div class="action-wrapper">
-                      <%= link_to "start a new split with this team ", new_group_activity_cost_path(group), class:"btn-light btn-small" %>
-                      <%= link_to "Edit", edit_group_path(group), class:"btn-dark font-weight-light p-1" %>
-                      <%= link_to "🗑", group_path(group), method: :delete %>
-                   </div>
+                    <% end %>
                   </div>
+
+                  <div class="action-wrapper">
+                    <%= link_to "Edit", edit_group_path(group), class:"btn-light btn-small" %>
+                    <%= link_to "🗑", group_path(group), method: :delete, class:"btn-light btn-small" %>
+                    <%= link_to "start a new split with this team ", new_group_activity_cost_path(group), class:"btn-light btn-small" %>
+                  </div>
+
                 </div>
-             <% end %>
+              </div>
+
             <% end %>
-          </div>
-      <%= link_to "Back", root_path, class:"btn-dark", data: { turbolinks: false } %>
-  </div>
+          <% end %>
+      </div>
+    </div>
+  <%= link_to "Back", root_path, class:"btn-dark", data: { turbolinks: false } %>
 </div>
