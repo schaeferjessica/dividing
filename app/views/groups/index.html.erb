@@ -4,14 +4,14 @@
       <% if current_user %>
         <h2 class="font-weight-normal">saved groups<sup>*</sup></h2>
           <p class="text-thin">here you can see your saved groups and start a new split.</p>
-                    <% current_user.groups.each do |group| %>
-                    <div class="accordion">
-                      <div class="acc-tab">
-                        <button class="acc-btn">
-                          <span><%= group.group_name %></span>
-                          <span class="btn-light p-1 border border-normal cross"> + </span>
-                        </button>
-                      </div>
+            <% current_user.groups.each do |group| %>
+             <div class="accordion">
+                <div class="acc-tab">
+                    <button class="acc-btn">
+                      <span><%= group.group_name %></span>
+                      <span class="btn-light p-1 border border-normal cross"> + </span>
+                    </button>
+                </div>
 
           		        <div class="acc-tabpanel">
                         <div class="acc-tabpanel-inner">
@@ -32,6 +32,7 @@
              <% end %>
             <% end %>
           </div>
-      <%= link_to "Back", root_path, class:"btn-dark", data: { turbolinks: false } %>
+    </div>
   </div>
+  <%= link_to "Back", root_path, class:"btn-dark", data: { turbolinks: false } %>
 </div>
