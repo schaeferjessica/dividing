@@ -1,38 +1,17 @@
-#splits-index-page {
+.splits-index {
   background-color: $base-color;
-  min-height: 100vh;
   min-height: 100vh;
   display: flex;
   width: 100%;
   align-items: center;
   padding-bottom: 80px;
-}
 
-#splits-index-heading {
+  width: 100%;
+  align-items: center;
+  padding-bottom: 80px;
+
+  .heading {
   padding-bottom: 70px;
   font-size: 20px;
-}
-
-#splits {
-
-}
-
-.row {
-  width: 800px;
-}
-
-#splits-index-container {
-  display: flex;
-}
-
-.split-card {
-  padding: 20px;
-}
-
-.split-member {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-#splits-index-container-right {
+  }
 }
