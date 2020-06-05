@@ -1,0 +1,43 @@
+.group-edit {
+  background-color: $base-color;
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 80px;
+
+  .form-control {
+    border-bottom: 1px solid $black-color;
+    border-radius: 0;
+    margin: 35px 0;
+  }
+
+  .form-control:focus {
+    color: $black-color;
+    background-color: transparent;
+    border-color: $black-color;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px solid $black-color;
+    border-radius: 0;
+  }
+
+  label {
+  display: none;
+  }
+
+  .group-name {
+    margin: 20px 0;
+  }
+}
+
+.edit-cross {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  font-size: 18px;
+}
+
+.edit-member-input {
+  position: relative;
+}
