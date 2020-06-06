@@ -3,16 +3,16 @@
   <% if !user_signed_in? %>
     <div class="inner-logedout">
       <li class="nav-item">
-        <button class="btn-light btn-overlay" data-target="log-in-container">sign in</button>
+        <button class="btn btn-light btn-overlay" data-target="log-in-container">sign in</button>
       </li>
       <li class="nav-item">
-        <button class="btn-light btn-overlay" data-target="sign-up-container">sign up for free</button>
+        <button class="btn btn-light btn-overlay" data-target="sign-up-container">sign up for free</button>
       </li>
     </div>
   <% else %>
     <div class="inner-logedin">
       <li class="nav-item mt-1">
-        <%= link_to "saved groups & splits", groups_path, class:"btn-light", data: { turbolinks: false } %>
+        <%= link_to "saved groups & splits", groups_path, class:"btn btn-light", data: { turbolinks: false } %>
       </li>
       <li class="nav-item dropdown">
         <p class="username"><%= current_user.username %></p>
@@ -32,7 +32,7 @@
     <h1><span class="heading">split your - </span><span id="banner-typed-text"></span></h1>
     <h2>Keep track of all your group expenses. It's quick, easy, and stress-free. 😇</h2>
     <div class="btn-center">
-      <%= link_to "start splitting", new_group_path, class: "btn-dark btn-big", data: { turbolinks: false }%>
+      <%= link_to "start splitting", new_group_path, class: "btn btn-dark btn-big", data: { turbolinks: false }%>
     </div>
   </div>
 </section>

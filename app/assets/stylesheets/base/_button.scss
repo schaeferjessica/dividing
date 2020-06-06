@@ -1,36 +1,19 @@
-.btn-light {
-  font-family: "Jost", sans-serif;
+.btn {
+  font-family: $font-hind;
   font-size: 14px;
-  padding: 10px 12px;
+  padding: 15px 25px;
   margin: 5px;
-  border: 1px solid $black-color;
-  background-color: transparent;
-  border-radius: 5px;
-  cursor: pointer;
-  text-transform: uppercase;
+  line-height: 1.1;
+  border: 1px solid rgba(51, 51, 51, .2);
+  color: $black-color;
+  transition: color 200ms cubic-bezier(0.645, 0.045, 0.355, 1), background-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
   letter-spacing: 0.5px;
+  border-radius: 0;
+  cursor: pointer;
 
   &:hover {
     background-color: $black-color;
-    color: #fff;
-  }
-}
-
-.btn-dark {
-  font-family: "Jost", sans-serif;
-  font-size: 14px;
-  padding: 10px 12px;
-  margin: 5px;
-  background-color: $black-color;
-  border-radius: 5px;
-  color: #fff;
-  border: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-
-  &:hover {
-    background-color: $blue-color;
-    color: $black-color;
+    color: $white-color;
   }
 
   &:focus {
@@ -42,10 +25,29 @@
   }
 }
 
+.btn-light {
+  background-color: transparent;
+
+  &:hover {
+    background-color: $black-color;
+    color: #fff;
+  }
+}
+
+.btn-dark {
+  background-color: $black-color;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    background-color: $blue-color;
+    color: $black-color;
+  }
+}
+
 .btn-big {
-  font-family: "Jost", sans-serif;
   font-size: 16px;
-  padding: 14px 16px;
+  padding: 20px 30px;
   margin: 15px;
   display: block;
 }
@@ -61,16 +63,9 @@
 }
 
 .btn-color {
-  font-family: "Jost", sans-serif;
-  font-size: 14px;
-  padding: 10px 12px;
-  margin: 5px;
   background-color: $base-color;
-  border-radius: 5px;
   color: $black-color;
   border: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 
   &:hover {
     background-color: $blue-color;
@@ -87,7 +82,5 @@
 }
 
 .btn-minimal {
-  font-family: "Jost", sans-serif;
   font-size: 12px;
-  margin: 5px;
 }
