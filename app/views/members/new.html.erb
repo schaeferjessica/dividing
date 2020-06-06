@@ -10,10 +10,7 @@
           <%= f.submit '+', class:"cross"%>
         </div>
         <% @group.members.each do |member| %>
-        <div class="name-wrapper">
-          <span class="addname"><%= member.name %></span>
-          <button type="button"><%= link_to "🗑", group_member_path(@group, member), remote: true, method: :delete %></button>
-        </div>
+          <button type="button" class="btn btn-light"><%= member.name %><%= link_to "🗑", group_member_path(@group, member), remote: true, method: :delete, class:"delete" %></button>
         <% end %>
         <div class="btn-wrapper">
           <%= link_to "back", new_group_path, class:"btn btn-light", data: { turbolinks: false } %>

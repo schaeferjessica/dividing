@@ -1,19 +1,15 @@
 <div class="group-edit">
-	<div class="container mt-3">
-	  <h2 class="font-weight-normal">edit group*</h2>
-		<h3 class="font-weight-normal mt-3"><%= @group.group_name %></h3>
-		<div>
+	<div class="container">
+	  <h2>edit group<sup>*</sup> <%= @group.group_name %></h2>
+		<div class="edit">
 		  <%= simple_form_for @group do |f| %>
 			  <%= f.input :group_name, label: false, placeholder: '👉 update your team name' %>
-	          <%= f.submit '💾 save', class:"btn-light" %>
+	          <%= f.submit 'save me  💾', class:"btn btn-light" %>
 	      <% end %>
 	    </div>
-	       <p class="mt-5"> group members: </p>
+	       <h3> group members: </h3>
 		     <% @group.members.each do |member| %>
-  	       <div class="btn-group">
-  		       <button type="button" class="btn btn-light"><%= member.name %></button>
-  			     <button type="button" class="btn btn-light"><%= link_to "🗑", group_member_path(@group, member), remote: true, method: :delete, class:"card-text" %></button>
-  			   </div>
+  			   <button type="button" class="btn btn-light"><%= member.name %><%= link_to "🗑", group_member_path(@group, member), remote: true, method: :delete, class:"delete" %></button>
   		   <% end %>
   		    <div class="form-member edit-member-input">
   		     <%= simple_form_for [@group, @member], remote: true do |f| %>
