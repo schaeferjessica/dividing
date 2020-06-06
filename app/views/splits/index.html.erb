@@ -18,9 +18,9 @@
 
               <div class="action-wrapper">
                 <% if split.status = false %>
-                  <button class="btn-light btn-small btn-outstanding"> outstanding</button>
+                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
                 <% else %>
-                  <button class="btn-light btn-small btn-paid"> paid</button>
+                  <button class="btn btn-light btn-small btn-paid"> paid</button>
                 <% end %>
               </div>
             </div>
@@ -43,9 +43,9 @@
 
               <div class="action-wrapper">
                 <% if split.status = false %>
-                  <button class="btn-light btn-small btn-paid"> paid</button>
+                  <button class="btn btn-light btn-small btn-paid"> paid</button>
                 <% else %>
-                  <button class="btn-light btn-small btn-outstanding"> outstanding</button>
+                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
                 <% end %>
               </div>
             </div>
@@ -64,8 +64,8 @@
       </div>
 
       <div class="button-wrapper">
-        <%= link_to "back", new_activity_cost_split_path, class: "btn-light"%>
-        <button class="btn-dark">send link</button>
+        <%= link_to "back", new_activity_cost_split_path, class: "btn btn-light", data: { turbolinks: false } %>
+        <button class="btn btn-dark">send link</button>
       </div>
     </div>
   </div>
