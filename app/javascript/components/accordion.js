@@ -269,15 +269,17 @@ export function slideClose(
 const accordions = document.querySelectorAll('.accordion');
 if (accordions.length) {
   accordions.forEach(accordion => {
+    const isOpen = accordion.classList.contains('open');
     const target = accordion.querySelector('.acc-tabpanel');
     const handler = accordion.querySelector('.acc-tab');
 
+    console.log(isOpen)
     new Shower({
       target,
       handler,
       easing: 'easeInOutQuart',
       duration: 300,
-      initOpened: false,
+      initOpened: isOpen,
       openClassName: 'is-open',
     }).init();
   });
