@@ -43,11 +43,17 @@
     font-weight: 300;
     font-size: 14px;
     padding: 12px;
+
+  &:hover {
+    background-color: $blue-color;
+  }
 }
 
 .dropdown-menu {
-    border: none;
-    left: -50px;
-    width: 100%;
-    left: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  left: -50px;
+  width: 100%;
+  left: 0;
 }
