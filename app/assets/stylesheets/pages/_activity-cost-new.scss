@@ -1,5 +1,5 @@
 .activity-cost-new {
-  background-color: $black-color;
+  background-color: $base-color;
   min-height: 100vh;
   display: flex;
   width: 100%;
@@ -9,11 +9,11 @@
   h1,
   h2,
   p  {
-      color: $white-color;
+      color: $black-color;
   }
 
   h1 {
-    margin: 10px 0;
+    margin-top: 35px;
   }
 
   p  {
@@ -26,32 +26,32 @@
 
   .form-control {
     font-size: 14px;
-    border-bottom: 1px solid $white-color;
+    border-bottom: 1px solid $black-color;
     border-radius: 0;
     margin-bottom: 40px;
-    background-color: $black-color;
-    color: $white-color;
+    background-color: $white-color;
+    color: $black-color;
 
     &::placeholder {
       opacity: 1;
-      color: $white-color;
+      color: $black-color;
       font-weight: 300;
     }
   }
 
   .form-control:focus {
-    color: $white-color;
-    background-color: $black-color;
-    border-color: $white-color;
+    color: $black-color;
+    background-color: $white-color;
+    border-color: $black-color;
     outline: 0;
     box-shadow: none;
-    border-bottom: 1px solid $white-color;
+    border-bottom: 1px solid $black-color;
     border-radius: 0;
   }
 
     select {
     border: none;
-    background-color: $black-color;
+    background-color: $white-color;
     color: rgba(255, 255, 255, 0.76);
     font-size: 14px;
     -webkit-appearance: none; // hide arrow for chrome
@@ -59,7 +59,10 @@
   }
 
     option {
-    background-color: $black-color;
+    background-color: $white-color;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
     padding: 10px 0;
     margin: 10px 0;
   }

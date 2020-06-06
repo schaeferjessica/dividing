@@ -4,7 +4,7 @@
 
       <% @splits.each do |split| %>
         <% if split.member.name == split.activity_cost.paid_by %>
-        <div class="accordion">
+        <div class="accordion open">
           <div class="acc-tab">
             <button class="acc-btn">
               <span><%= split.member.name %></span>
@@ -29,7 +29,7 @@
 
       <% else %>
 
-      <div class="accordion">
+      <div class="accordion open">
           <div class="acc-tab">
             <button class="acc-btn">
               <span><%= split.member.name %></span>
@@ -60,10 +60,9 @@
         <p class="subtracting">subtracting cost - <%= @activity_cost.employer_contribution %></p>
         <p class="additional">additional cost + <%= @activity_cost.service_tip %></p>
         <p class="balance">total amount: <%= @activity_cost.total_balance %></p>
-        <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
       </div>
-
-      <div class="button-wrapper">
+      <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
+      <div class="btn-wrapper">
         <%= link_to "back", new_activity_cost_split_path, class: "btn btn-light", data: { turbolinks: false } %>
         <button class="btn btn-dark">send link</button>
       </div>
