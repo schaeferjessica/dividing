@@ -41,7 +41,7 @@ if (overlayWrapper) {
     button.addEventListener('click', () => {
       const target = document.querySelector(`#${button.dataset.target}`);
       // activate overlay wrapper
-      overlayWrapper.classList.add('is-active');
+      overlayWrapper.classList.toggle('is-active');
       // hide all overlays (reset)
       overlays.forEach(overlay => overlay.classList.add('is-hidden'));
 

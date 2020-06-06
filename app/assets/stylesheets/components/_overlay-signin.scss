@@ -23,20 +23,21 @@
 // }
 
 .overlay-wrapper {
-  display: none;
   position: absolute;
   left: 0;
   top: 60px;
   height: calc(100% - 60px);
   width: 50vw;
   background-color: #fff;
+  transform: translateX(-100%);
+  transition: all 800ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
   @include media-breakpoint-down(sm) {
    width: 100vw;
   }
 
   &.is-active {
-    display: block;
+    transform: translateX(0);
   }
 }
 
