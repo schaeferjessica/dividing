@@ -61,11 +61,30 @@
         <p class="additional">additional cost + <%= @activity_cost.service_tip %></p>
         <p class="balance">total amount: <%= @activity_cost.total_balance %></p>
       </div>
+
       <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
+
       <div class="btn-wrapper">
         <%= link_to "back", new_activity_cost_split_path, class: "btn btn-light", data: { turbolinks: false } %>
-        <button class="btn btn-dark">send link</button>
-      </div>
+        <button class="btn btn-dark copy-link-event">send link</button>
+        <ul class="socialmedia-list is-active">
+        <li>
+          <a href="" title="copie link" class="btn btn-light">
+            <i class="fas fa-link"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" title="share on whats app" class="btn btn-light">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" title="shre on slack" class="btn btn-light">
+            <i class="fab fa-slack"></i>
+          </a>
+        </li>
+      </ul>
     </div>
+
   </div>
 </div>
