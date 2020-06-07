@@ -1,7 +1,7 @@
 .home {
   display: flex;
   background-color: $base-color;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 70px);
 
   .context {
     display: flex;
@@ -18,13 +18,34 @@
     }
   }
 
+  text-align: left;
+  width: 100%;
+
   h2 {
     margin: 50px;
   }
-}
 
 .footer {
   position: absolute;
   bottom: 20px;
   left: 20px;
+}
+
+
+@include media-breakpoint-down(xs) {
+  h1,
+  h2 {
+    text-align: left;
+    width: 100%;
+  }
+
+    .heading {
+      display: block;
+    }
+
+  .footer {
+    bottom: 10px;
+    left: 10px;
+    }
+  }
 }
