@@ -1,6 +1,6 @@
 .setup {
   min-height: 100vh;
-  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
   width: 100%;
   padding-bottom: 80px;
   background-color: $base-color;
@@ -8,6 +8,17 @@
   align-items: center;
   padding-bottom: 80px;
   padding-top: 35px;
+
+  /*
+   * fix 100vh for safari mobile.
+   * but -webkit-fill-available bugs in chrome, so we only want to adress safari mobile.
+   * https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+  */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      min-height: -webkit-fill-available;
+    }
+  }
 }
 
 .btn-wrapper {
