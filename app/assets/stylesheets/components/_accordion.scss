@@ -36,4 +36,10 @@
       margin-right: 10px;
     }
   }
+
+  .is-open {
+    .plus {
+    transform: rotate(45deg);
+    }
+  }
 }
