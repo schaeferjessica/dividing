@@ -1,6 +1,10 @@
-<div class="splits-index">
+<div class="splits-index setup">
   <div class="container">
-    <p class="heading">Okay members of <%= @activity_cost.group.group_name %>! Let's split the cost between us <strong><%= @activity_cost.split_type %></strong></p>
+    <div class="context">
+      <h1 class="heading">Okay members of <%= @activity_cost.group.group_name %>!</h1>
+      <p>Let's split the cost between us <strong><%= @activity_cost.split_type %></strong></p>
+      <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
+    </div>
 
       <% @splits.each do |split| %>
         <% if split.member.name == split.activity_cost.paid_by %>
@@ -61,8 +65,6 @@
         <p class="additional">additional cost + <%= @activity_cost.service_tip %></p>
         <p class="balance">total amount: <%= @activity_cost.total_balance %></p>
       </div>
-
-      <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
 
       <div class="btn-wrapper">
         <%= link_to "back", new_activity_cost_split_path, class: "btn btn-light", data: { turbolinks: false } %>
