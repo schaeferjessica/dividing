@@ -1,20 +1,18 @@
-<div class="container setup">
-  <div class="activity-form">
+<div class="activity-edit">
+  <div class="container setup">
+  <%= simple_form_for @activity_cost do |f| %>
+    <div class="form-wrapper">
+      <%= f.input :actual_cost, label: 'Total amount paid' %>
+      <%= f.input :service_tip, label: 'Additional cost' %>
+      <%= f.input :employer_contribution, label: 'Employer contribution or Discount'%>
+      <%= f.input :currency, label: 'Currency' %>
+      <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
+    </div>
 
-<%= simple_form_for @activity_cost do |f| %>
-  <div class="form-wrapper">
-    <%= f.input :actual_cost, label: 'Total amount paid' %>
-    <%= f.input :service_tip, label: 'Additional cost' %>
-    <%= f.input :employer_contribution, label: 'Employer contribution or Discount'%>
-    <%= f.input :currency, label: 'Currency' %>
-    <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
+    <div class="btn-wrapper">
+      <%= link_to "back", class:"btn btn-light", data: { turbolinks: false } %>
+      <%= f.submit "next", class:"btn btn-dark", data: { turbolinks: false } %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="btn-wrapper">
-    <%= link_to "back", class:"btn btn-light", data: { turbolinks: false } %>
-    <%= f.submit "next", class:"btn btn-light", data: { turbolinks: false } %>
-  </div>
-  <% end %>
-</div>
-
 </div>
