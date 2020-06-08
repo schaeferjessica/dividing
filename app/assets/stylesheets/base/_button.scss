@@ -83,7 +83,8 @@
 
 .btn-minimal {
   font-size: 12px;
-  border-bottom: 1px solid #dae0e5;
+  border-bottom: 1px solid $gray-color;
+  color: $gray-color;
   margin: 10px;
 }
 
