@@ -4,6 +4,15 @@
     border-radius: 0;
     margin: 35px 0;
   }
+  
+  .item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      margin-right: 16px;
+    }
+  }
 
   .form-control:focus {
     color: $black-color;
