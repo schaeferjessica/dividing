@@ -6,11 +6,13 @@
   }
   
   .item-row {
+    color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
     span {
       margin-right: 16px;
+      font-weight: lighter;
     }
   }
 
@@ -41,4 +43,8 @@
       margin: 5px;
     }
   }
+}
+
+.action-wrapper.index-wrapper {
+  display: block;
 }

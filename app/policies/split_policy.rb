@@ -18,7 +18,7 @@ class SplitPolicy < ApplicationPolicy
   end
 
   def update?
-    owner_or_admin?
+    true
   end
 
   def destroy?
