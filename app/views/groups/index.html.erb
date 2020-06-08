@@ -45,30 +45,30 @@
       <p class="text-thin">here you can see your previous split.</p>
       <% current_user.groups.each do |group| %>
         <div class="accordion">
-           <div class="acc-tab">
-              <button class="acc-btn">
-                <span>splits for <%= group.group_name %></span>
-                <span class="plus"> + </span>
-              </button>
-              <div class="acc-tabpanel border-bottom">
-                <div class="acc-tabpanel-inner">
-                  <div class="item-row-details text-thin" style="font-size: 12px">
-                   <% group.activity_costs.each do |cost| %>
-                    <div><%= cost.total_balance %><%= cost.currency %></div>
-                    <div class="mb-3"><%= cost.updated_at.strftime("%A %d.%m.%Y") %></div>
-                   <%end%>
+         <div class="acc-tab">
+            <button class="acc-btn">
+              <span>splits for <%= group.group_name %></span>
+              <span class="plus"> + </span>
+            </button>
+          </div>
+          <div class="acc-tabpanel border-bottom">
+            <div class="acc-tabpanel-inner">
+              <div class="item-row-details text-thin" style="font-size: 12px">
+               <% group.activity_costs.each do |cost| %>
+                <div><%= cost.total_balance %><%= cost.currency %></div>
+                <div class="mb-3"><%= cost.updated_at.strftime("%A %d.%m.%Y") %></div>
+               <%end%>
+              </div>
+              <div class="item-row-details">
+                <% group.activity_costs.each do |cost| %>
+                  <div class="action-wrapper index-wrapper">
+                    <%= link_to "See past split", activity_cost_splits_path(cost), class:"btn btn-light btn-small mb-3"%>
+                    <%= link_to "🗑", group_activity_cost_path(group, cost), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small mb-3" %>
                   </div>
-                  <div class="item-row-details">
-                    <% group.activity_costs.each do |cost| %>
-                      <div class="action-wrapper index-wrapper">
-                        <%= link_to "See past split", activity_cost_splits_path(cost), class:"btn btn-light btn-small mb-3"%>
-                        <%= link_to "🗑", group_activity_cost_path(group, cost), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small mb-3" %>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
+                <% end %>
               </div>
             </div>
+          </div>
         </div>
       <% end %>
     <% end %>
