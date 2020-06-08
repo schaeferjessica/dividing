@@ -26,6 +26,8 @@ copyTextareaBtn && copyTextareaBtn.addEventListener('click', function(event) {
   }
 });
 
+}
+
 const slackBtn = document.querySelector('.slack');
 
 slackBtn && slackBtn.addEventListener('click', function(event) {
@@ -44,7 +46,6 @@ slackBtn && slackBtn.addEventListener('click', function(event) {
   }
 });
 
-}
 
 const whatsAppBtn = document.querySelector('.whatsapp');
 
