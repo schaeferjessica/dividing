@@ -67,11 +67,18 @@
   .form-check-label {
     display: inline-block;
     text-transform: uppercase;
+    color: $black-color;
+    font-size: 14px;
+  }
+
+  input.is-valid ~ .form-check-label {
+    color: $black-color;
   }
 
   .form-check-input {
     position: static;
     margin-right: 8px;
+    background-color: transparent;
   }
 
   .form-group.radio_buttons {
