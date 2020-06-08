@@ -3,7 +3,9 @@
   <h1><span>5 </span>edit<sup> *</sup></h1>
   <%= simple_form_for [@activity_cost.group, @activity_cost] do |f| %>
     <div class="form-wrapper">
-      <%= f.input :split_type, as: :radio_buttons, collection: ['evenly', 'individualy']%>
+      <%= f.input :split_type, as: :radio_buttons, collection: ['Vegan', 'Vegetarian'] %>
+
+
       <h2>edit total amount paid</h2>
       <%= f.input :actual_cost, label: 'Total amount paid' %>
       <h2>edit total cost was paid by<sup> *</sup></h2>
@@ -16,6 +18,10 @@
       <%= f.input :employer_contribution, label: 'Employer contribution or Discount'%>
       <%= f.input :currency, collection: ActivityCost::CURRENCY, label: 'Currency', include_blank: false %>
     </div>
+    <div class="btn-wrapper">
+    <%= link_to "back", class:"btn btn-light", data: { turbolinks: false } %>
+    <%= f.submit "next", class:"btn btn-light", data: { turbolinks: false } %>
+  </div>
   <% end %>
   </div>
 </div>

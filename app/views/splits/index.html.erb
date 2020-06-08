@@ -6,58 +6,15 @@
       <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
     </div>
 
-      <% @splits.each do |split| %>
-        <% if split.member.name == split.activity_cost.paid_by %>
-        <div class="accordion open">
-          <div class="acc-tab">
-            <button class="acc-btn">
-              <span><%= split.member.name %></span>
-              <span class="plus"> + </span>
-            </button>
-          </div>
+    <% if @activity_cost.split_type == 'evenly'%>
+      <%= render 'evenly', splits: @splits %>
+    <% else %>
+      <%= render 'individually', splits: @splits %>
+    <% end %>
 
-          <div class="acc-tabpanel">
-            <div class="acc-tabpanel-inner">
-              <span class="text-thin">you spent <%= split.individual_balances %><%= @currency_symbol %> </span>
 
-              <div class="action-wrapper">
-                <% if split.status = false %>
-                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
-                <% else %>
-                  <button class="btn btn-light btn-small btn-paid"> paid</button>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      <% else %>
 
-      <div class="accordion open">
-          <div class="acc-tab">
-            <button class="acc-btn">
-              <span><%= split.member.name %></span>
-              <span class="plus"> + </span>
-            </button>
-          </div>
-
-          <div class="acc-tabpanel">
-            <div class="acc-tabpanel-inner">
-              <span class="text-thin">please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></span>
-
-              <div class="action-wrapper">
-                <% if split.status = false %>
-                  <button class="btn btn-light btn-small btn-paid"> paid</button>
-                <% else %>
-                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <% end %>
-      <% end %>
 
       <div class="sum">
         <p class="total">total cost: <%= @activity_cost.actual_cost %><%= @currency_symbol %></p>
