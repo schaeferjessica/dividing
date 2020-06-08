@@ -14,3 +14,7 @@ import * as Socialmedia from '../components/socialmedia';
 import * as Accordion from '../components/accordion';
 
 export { Overlay, Heading, Cookie, OverlayEdit, Accordion, Socialmedia };
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
