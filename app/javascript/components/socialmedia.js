@@ -8,6 +8,8 @@ btnLink && btnLink.addEventListener('click', (event) => {
 
 var copyTextareaBtn = document.querySelector('.link');
 
+if (copyTextareaBtn) {
+
 copyTextareaBtn.addEventListener('click', function(event) {
   var dummy = document.createElement('input');
   const url = window.location.href;
@@ -24,3 +26,4 @@ copyTextareaBtn.addEventListener('click', function(event) {
   }
 });
 
+}
