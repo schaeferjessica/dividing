@@ -28,11 +28,18 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create]
     authorize @splits
   end
 
+  def update
+    @split = Split.find(params[:id])
+    authorize @split
+    @split.update(split_params)
+    redirect_to activity_cost_splits_path(@split.activity_cost)
+  end
+
   private
 
-  # def split_params
-  #   params.require(:split).permit(:split_type)
-  # end
+  def split_params
+    params.require(:split).permit(:status)
+  end
 
   def split_cost(split_type)
     @activity_cost = ActivityCost.find(params[:activity_cost_id])
@@ -58,3 +65,4 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create]
     end
   end
 end
+

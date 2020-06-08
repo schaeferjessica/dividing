@@ -21,10 +21,10 @@
               <span class="text-thin">you spent <%= split.individual_balances %> <%= split.activity_cost.currency %> </span>
 
               <div class="action-wrapper">
-                <% if split.status = false %>
-                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
+                <% if split.status == false %>
+                  <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, class: "btn btn-light btn-small btn-outstanding" %>
                 <% else %>
-                  <button class="btn btn-light btn-small btn-paid"> paid</button>
+                  <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, class: "btn btn-light btn-small btn-paid" %>
                 <% end %>
               </div>
             </div>
@@ -46,10 +46,10 @@
               <span class="text-thin">please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></span>
 
               <div class="action-wrapper">
-                <% if split.status = false %>
-                  <button class="btn btn-light btn-small btn-paid"> paid</button>
+                <% if split.status == false %>
+                   <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, class: "btn btn-light btn-small btn-outstanding" %>
                 <% else %>
-                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
+                   <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, class: "btn btn-light btn-small btn-paid" %>
                 <% end %>
               </div>
             </div>
