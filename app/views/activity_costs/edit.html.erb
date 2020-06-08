@@ -14,12 +14,7 @@
       <h2>edit cost reductions</h2>
       <p class="text-thin">here you can subtract an amount that's already been paid.</p>
       <%= f.input :employer_contribution, label: 'Employer contribution or Discount'%>
-      <%= f.input :currency, label: 'Currency' %>
-    </div>
-
-    <div class="btn-wrapper">
-      <%= link_to "back", new_group_path, class:"btn btn-light", data: { turbolinks: false }  %>
-      <%= f.submit "next", class:"btn btn-light", data: { turbolinks: false } %>
+      <%= f.input :currency, collection: ActivityCost::CURRENCY, label: 'Currency', include_blank: false %>
     </div>
   <% end %>
   </div>

@@ -18,7 +18,7 @@
 
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
-              <span class="text-thin">you spent <%= split.individual_balances %><%= @currency_symbol %> </span>
+              <span class="text-thin">you spent <%= split.individual_balances %> <%= split.activity_cost.currency %> </span>
 
               <div class="action-wrapper">
                 <% if split.status = false %>
@@ -60,10 +60,10 @@
       <% end %>
 
       <div class="sum">
-        <p class="total">total cost: <%= @activity_cost.actual_cost %><%= @currency_symbol %></p>
-        <p class="subtracting">subtracting cost - <%= @activity_cost.employer_contribution %><%= @currency_symbol %></p>
-        <p class="additional">additional cost + <%= @activity_cost.service_tip %><%= @currency_symbol %></p>
-        <p class="balance">total amount: <%= @activity_cost.total_balance %><%= @currency_symbol %></p>
+        <p class="total">total cost: <%= @activity_cost.actual_cost %></p>
+        <p class="subtracting">subtracting cost - <%= @activity_cost.employer_contribution %></p>
+        <p class="additional">additional cost + <%= @activity_cost.service_tip %></p>
+        <p class="balance">total amount: <%= @activity_cost.total_balance %></p>
       </div>
 
       <div class="btn-wrapper">
@@ -71,19 +71,19 @@
         <button class="btn btn-dark btn-link">send link</button>
         <ul class="socialmedia-list is-active">
         <li class="link">
-          <button class="btn btn-light" data-container="body" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+          <a href="" title="copie link" class="btn btn-light">
             <i class="fas fa-link"></i>
-          </button>
+          </a>
         </li>
         <li  class="whatsapp">
-          <button title="share on whats app" class="btn btn-light">
+          <a href="" title="share on whats app" class="btn btn-light">
             <i class="fab fa-whatsapp"></i>
-          </button>
+          </a>
         </li>
         <li class="slack">
-          <button class="btn btn-light" onclick="window.location.href='slack://open';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+          <a href="" title="shre on slack" class="btn btn-light">
             <i class="fab fa-slack"></i>
-          </button>
+          </a>
         </li>
       </ul>
     </div>
