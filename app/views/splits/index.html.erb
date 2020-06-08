@@ -71,19 +71,19 @@
         <button class="btn btn-dark btn-link">send link</button>
         <ul class="socialmedia-list is-active">
         <li class="link">
-          <a href="" title="copie link" class="btn btn-light">
+          <button class="btn btn-light" data-container="body" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
             <i class="fas fa-link"></i>
-          </a>
+          </button>
         </li>
         <li  class="whatsapp">
-          <a href="" title="share on whats app" class="btn btn-light">
+          <button title="share on whats app" class="btn btn-light">
             <i class="fab fa-whatsapp"></i>
-          </a>
+          </button>
         </li>
         <li class="slack">
-          <a href="" title="shre on slack" class="btn btn-light">
+          <button class="btn btn-light" onclick="window.location.href='slack://open';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
             <i class="fab fa-slack"></i>
-          </a>
+          </button>
         </li>
       </ul>
     </div>
