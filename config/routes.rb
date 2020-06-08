@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :activity_costs, only: [] do
     resources :splits
   end
+
+
+  resources :splits, only: [:update]
 end
