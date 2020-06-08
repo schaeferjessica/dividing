@@ -1,4 +1,5 @@
 class SplitsController < ApplicationController
+# require 'iso4217'
 skip_before_action :authenticate_user!, only: [:new, :index, :create]
 
   # def new
@@ -23,6 +24,7 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create]
       split_destroy
       split_cost(@activity_cost.split_type)
     end
+    @currency_symbol = ISO4217::Currency.from_code(@activity_cost.currency).symbol
     @splits = policy_scope(Split)
     @splits = @activity_cost.splits
     authorize @splits
