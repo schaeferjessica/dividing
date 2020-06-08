@@ -60,10 +60,10 @@
       <% end %>
 
       <div class="sum">
-        <p class="total">total cost: <%= @activity_cost.actual_cost %><%= @currency_symbol %></p>
-        <p class="subtracting">subtracting cost - <%= @activity_cost.employer_contribution %><%= @currency_symbol %></p>
+        <p class="total">subtotal: <%= @activity_cost.actual_cost %><%= @currency_symbol %></p>
+        <p class="subtracting">discount/prepaid amount - <%= @activity_cost.employer_contribution %><%= @currency_symbol %></p>
         <p class="additional">additional cost + <%= @activity_cost.service_tip %><%= @currency_symbol %></p>
-        <p class="balance">total amount: <%= @activity_cost.total_balance %><%= @currency_symbol %></p>
+        <p class="balance">grand total: <%= @activity_cost.total_balance %><%= @currency_symbol %></p>
       </div>
 
       <div class="btn-wrapper">

@@ -1,6 +1,6 @@
 <div class="activity-new setup">
   <div class="container">
-    <h1><span>3 </span>total amount paid<sup> *</sup></h1>
+    <h1><span>3 </span>total initial cost<sup> *</sup></h1>
     <%= simple_form_for [@group, @activity_cost] do |f| %>
       <div class="form-wrapper">
         <%= f.input :split_type, as: :radio_buttons, collection: ['evenly', 'individualy'], class: "d-flex"%>
@@ -8,10 +8,10 @@
         <h2>total cost was paid by<sup> *</sup></h2>
         <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
         <h2>additional costs</h2>
-        <p class="text-thin">here you can add an additional cost like a tip.</p>
+        <p class="text-thin">here you can add additional costs like a tip.</p>
         <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
         <h2>cost reductions</h2>
-        <p class="text-thin">here you can subtract an amount that's already been paid.</p>
+        <p class="text-thin">here you can subtract any discounts or amounts that have already been paid.</p>
         <%= f.input :employer_contribution, label: 'Employer contribution or Discount', placeholder: '👉 Employer contribution or discount (optional)..' %>
         <%= f.input :currency, collection: ActivityCost::CURRENCY, label: 'Currency', include_blank: false %>
       </div>
