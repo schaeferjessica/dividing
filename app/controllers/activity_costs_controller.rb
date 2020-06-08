@@ -1,6 +1,6 @@
 class ActivityCostsController < ApplicationController
 before_action :set_activity_cost, only: [:edit, :update]
-skip_before_action :authenticate_user!, only: [:new, :create]
+skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def new
     @group = Group.find(params[:group_id])
@@ -17,7 +17,7 @@ skip_before_action :authenticate_user!, only: [:new, :create]
     @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
 
     if @activity_cost.save
-      redirect_to new_activity_cost_split_path(@activity_cost), notice: 'Activity Cost was successfully created.'
+      redirect_to activity_cost_splits_path(@activity_cost), notice: 'Activity Cost was successfully created.'
     else
       render :new
     end
@@ -31,7 +31,9 @@ skip_before_action :authenticate_user!, only: [:new, :create]
 
   def update
     if @activity_cost.update(activity_cost_params)
-      redirect_to new_activity_cost_split_path(@activity_cost), notice: 'Activity was successfully updated.'
+        @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
+        @activity_cost.update(total_balance: @activity_cost.total_balance)
+      redirect_to activity_cost_splits_path(@activity_cost), notice: 'Activity was successfully updated.'
     else
       render :edit
     end
@@ -40,7 +42,7 @@ skip_before_action :authenticate_user!, only: [:new, :create]
   private
 
   def activity_cost_params
-    params.require(:activity_cost).permit(:actual_cost, :service_tip, :employer_contribution, :currency, :paid_by)
+    params.require(:activity_cost).permit(:actual_cost, :service_tip, :employer_contribution, :currency, :paid_by, :split_type)
   end
 
   def set_activity_cost
