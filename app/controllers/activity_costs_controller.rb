@@ -1,5 +1,5 @@
 class ActivityCostsController < ApplicationController
-before_action :set_activity_cost, only: [:edit, :update]
+before_action :set_activity_cost, only: [:edit, :update, :destroy]
 skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def new
@@ -37,6 +37,12 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
     else
       render :edit
     end
+  end
+
+  def destroy
+   if @activity_cost.destroy
+    redirect_to groups_path
+   end
   end
 
   private

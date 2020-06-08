@@ -28,6 +28,6 @@ class ActivityCostPolicy < ApplicationPolicy
   private
 
   def owner_or_admin?
-    user == record.user || user.admin
+    user == record.group.user || user.admin
   end
 end

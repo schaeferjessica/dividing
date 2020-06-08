@@ -38,6 +38,7 @@
           <% end %>
       <% end %>
     </div>
+
     <% if current_user %>
         <h2>saved splits<sup>*</sup></h2>
           <p class="text-thin">here you can see your previous split.</p>
@@ -53,7 +54,7 @@
               <div class="item-row-details">
                 <% group.activity_costs.each do |cost| %>
                   <%= link_to "See past split", activity_cost_splits_path(cost), class:"btn btn-light btn-small"%>
-                  <%=link_to "🗑", group_path(group), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small" %>
+                  <%= link_to "🗑", group_path(group, cost), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small" %>
                 <% end %>
               </div>
           </div>

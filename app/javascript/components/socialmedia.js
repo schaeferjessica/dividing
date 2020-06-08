@@ -7,6 +7,9 @@ btnLink && btnLink.addEventListener('click', (event) => {
 
 const copyTextareaBtn = document.querySelector('.link');
 
+
+if (copyTextareaBtn) {
+
 copyTextareaBtn && copyTextareaBtn.addEventListener('click', function(event) {
   var dummy = document.createElement('input');
   const url = window.location.href;
@@ -41,6 +44,8 @@ slackBtn && slackBtn.addEventListener('click', function(event) {
   }
 });
 
+}
+
 const whatsAppBtn = document.querySelector('.whatsapp');
 
 whatsAppBtn && whatsAppBtn.addEventListener('click', function(event) {
@@ -58,3 +63,4 @@ whatsAppBtn && whatsAppBtn.addEventListener('click', function(event) {
     console.log('Oops, unable to copy');
   }
 });
+
