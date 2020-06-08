@@ -28,7 +28,7 @@
 
                   <div class="action-wrapper">
                     <%= link_to "Edit", edit_group_path(group), class:"btn btn-light btn-small" %>
-                    <%= link_to "🗑", group_path(group), method: :delete, class:"btn btn-light btn-small" %>
+                    <%= link_to "🗑", group_path(group), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small" %>
                     <%= link_to "start a new split with this team ", new_group_activity_cost_path(group), class:"btn btn-light btn-small" %>
                   </div>
 
@@ -38,6 +38,29 @@
           <% end %>
       <% end %>
     </div>
-  <%= link_to "Back", root_path, class:"btn btn-dark", data: { turbolinks: false } %>
- </div>
+    <% if current_user %>
+        <h2>saved splits<sup>*</sup></h2>
+          <p class="text-thin">here you can see your previous split.</p>
+        <% current_user.groups.each do |group| %>
+          <div class="form-control item-row">
+              <div class="item-row-details">
+                <span class="font-weight-normal"><%= group.group_name %></span>
+                <% group.activity_costs.each do |cost| %>
+                  <span><%= cost.total_balance %><%= cost.currency %></span>
+                  <span><%= cost.updated_at.strftime("%A %d.%m.%Y") %></span>
+                <%end%>
+              </div>
+              <div class="item-row-details">
+                <% group.activity_costs.each do |cost| %>
+                  <%= link_to "See past split", activity_cost_splits_path(cost), class:"btn btn-light btn-small"%>
+                  <%=link_to "🗑", group_path(group), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small" %>
+                <% end %>
+              </div>
+          </div>
+                <% end %>
+        <% end %>
+     <div class="btn-wrapper">
+      <%= link_to "Back", root_path, class:"btn btn-dark", data: { turbolinks: false } %>
+     </div>
+  </div>
 </div>
