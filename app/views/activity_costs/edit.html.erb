@@ -7,7 +7,7 @@
     <%= f.input :actual_cost, label: 'Total amount paid' %>
     <%= f.input :service_tip, label: 'Additional cost' %>
     <%= f.input :employer_contribution, label: 'Employer contribution or Discount'%>
-    <%= f.input :currency, label: 'Currency' %>
+    <%= f.input :currency, collection: ActivityCost::CURRENCY, label: 'Currency', include_blank: false %>
     <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
   </div>
 
