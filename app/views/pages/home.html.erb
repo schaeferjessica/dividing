@@ -17,14 +17,15 @@
       <li class="nav-item dropdown">
         <p class="username"><%= current_user.username %></p>
         <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, :crop=>"fill", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <button data-target="edit-container">
+            <%= cl_image_tag current_user.photo.key, :crop=>"fill", class: "avatar overlay-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          </button>
         <% else %>
-          <%= image_tag "profile.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <button data-target="edit-container">
+            <%= image_tag "profile.png", class: "avatar overlay-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          </button>
         <% end %>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <button class="dropdown-item btn-edit btn-overlay" data-target="edit-container">edit your profile ✏️</button>
-          <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
+        <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </li>
     </div>
   <% end %>
@@ -130,7 +131,6 @@
         <%= f.button :submit, "Update" %>
       </div>
     <% end %>
-    <h3>Cancel my account</h3>
-    <p>Unhappy? <%= link_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <p><%= link_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
   </div>
 </div>
