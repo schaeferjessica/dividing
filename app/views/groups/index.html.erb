@@ -52,24 +52,21 @@
             </button>
           </div>
           <div class="acc-tabpanel border-bottom">
+            <% group.activity_costs.each do |cost| %>
+              <div class="acc-tabpanel-inner acc-inner-text">
 
-          <% group.activity_costs.each do |cost| %>
-            <div class="acc-tabpanel-inner acc-inner-text">
+                <div class="balance-wrapper">
+                  <div><%= cost.total_balance %><%= cost.currency %></div>
+                  <div class="mb-3"><%= cost.updated_at.strftime("%A %d.%m.%Y") %></div>
+                </div>
 
-              <div class="balance-wrapper">
-                <div><%= cost.total_balance %><%= cost.currency %></div>
-                <div class="mb-3"><%= cost.updated_at.strftime("%A %d.%m.%Y") %></div>
+                <div class="action-wrapper">
+                  <%= link_to "See past split", activity_cost_splits_path(cost), class:"btn btn-light btn-small mb-3"%>
+                  <%= link_to "🗑", group_activity_cost_path(group, cost), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small mb-3" %>
+                </div>
+
               </div>
-
-              <div class="action-wrapper">
-                <%= link_to "See past split", activity_cost_splits_path(cost), class:"btn btn-light btn-small mb-3"%>
-                <%= link_to "🗑", group_activity_cost_path(group, cost), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light btn-small mb-3" %>
-              </div>
-
-            </div>
-          <%end%>
-
-
+            <%end%>
           </div>
         </div>
       <% end %>
