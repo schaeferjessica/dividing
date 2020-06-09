@@ -15,7 +15,7 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
     @members = @group.members
     @activity_cost = ActivityCost.new(activity_cost_params)
     @activity_cost.group = @group
-    @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
+    @activity_cost.total_balance = (@activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution).round(2)
 
     # @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
 
@@ -37,7 +37,7 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def update
     if @activity_cost.update(activity_cost_params)
-        @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
+        @activity_cost.total_balance = (@activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution).round(2)
 
         # @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
 

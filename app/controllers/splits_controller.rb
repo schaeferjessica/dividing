@@ -9,7 +9,7 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create, :update]
     @balance = @activity_cost.total_balance
     @splits.each do |split|
       if split.status == true
-        @balance = @balance - split.individual_balances
+        @balance = (@balance - split.individual_balances).round(2)
       end
     end
     @activity_cost.outstanding = @balance
