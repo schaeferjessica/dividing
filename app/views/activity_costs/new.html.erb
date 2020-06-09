@@ -3,7 +3,7 @@
     <h1><span>3 </span>total initial cost<sup> *</sup></h1>
     <%= simple_form_for [@group, @activity_cost] do |f| %>
       <div class="form-wrapper">
-        <%= f.input :split_type, as: :radio_buttons, collection: ['evenly', 'individualy'], class: "d-flex"%>
+        <%= f.input :split_type, as: :radio_buttons, collection: ['evenly', 'individually']%>
         <%= f.input :actual_cost, label: 'Total amount paid', placeholder: '👉 please type the the total amount here ..' %>
         <h2>total cost was paid by<sup> *</sup></h2>
         <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>

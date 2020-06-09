@@ -3,9 +3,7 @@
   <h1><span>5 </span>edit<sup> *</sup></h1>
   <%= simple_form_for [@activity_cost.group, @activity_cost] do |f| %>
     <div class="form-wrapper">
-      <%= f.input :split_type, as: :radio_buttons, collection: ['Vegan', 'Vegetarian'] %>
-
-
+      <%= f.input :split_type, as: :radio_buttons, collection: ['evenly', 'individually']%>
       <h2>edit total amount paid</h2>
       <%= f.input :actual_cost, label: 'Total amount paid' %>
       <h2>edit total cost was paid by<sup> *</sup></h2>

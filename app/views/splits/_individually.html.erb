@@ -10,13 +10,13 @@
 
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
-              <span class="text-thin">you spent <%= split.individual_balances %> <%= split.activity_cost.currency %> </span>
+              <span class="text-thin">you spent <%= split.individual_balances %><%= @currency_symbol %></span>
 
-              <div class="action-wrapper">
-                <% if split.status = false %>
-                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
-                <% else %>
+               <div class="action-wrapper">
+                <% if split.status = true %>
                   <button class="btn btn-light btn-small btn-paid"> paid</button>
+                <% else %>
+                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
                 <% end %>
               </div>
             </div>
@@ -35,7 +35,10 @@
 
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
-              <span class="text-thin">please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></span>
+              <span class="text-thin">please pay <%= split.activity_cost.paid_by %>
+                <%= text_field :split, :individual_balances%>
+                <%= @currency_symbol %>
+                <%= split.individual_balances %><%= link_to "confirm", split_path(split, split: { individual_balances: 0.0 }), method: :patch, class: "btn btn-light btn-small btn-paid" %></span>
 
               <div class="action-wrapper">
                 <% if split.status = false %>
