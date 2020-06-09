@@ -31,6 +31,44 @@
     font-size: 17px;
   }
 
+  .btn {
+  font-family: 'Hind Vadodara', sans-serif;
+  font-size: 14px;
+  padding: 15px 25px;
+  line-height: 1.1;
+  border: 1px solid rgba(51, 51, 51, .2);
+  color: #333;
+  transition: color 200ms cubic-bezier(0.645, 0.045, 0.355, 1), background-color 200ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  letter-spacing: 0.5px;
+  border-radius: 0;
+  cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #333;
+    color: #FFFEF2;
+  }
+
+  .btn:focus {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: transparent;
+    box-shadow: none;
+  }
+
+  .btn-light {
+    background-color: transparent;
+  }
+
+  .btn-light:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .btn-div {
+    margin-top: 60px;
+  }
   </style>
 </head>
 
@@ -40,6 +78,9 @@
     <div>
       <h1>The page you were looking for doesn't exist</h1>
       <p>You may have mistyped the address or the page may have moved</p>
+    </div>
+    <div class="btn-div">
+      <a href="/" class="btn btn-light">return to home page</a>
     </div>
   </div>
 </body>
