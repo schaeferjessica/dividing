@@ -19,7 +19,7 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create, :update]
   private
 
   def split_params
-    params.require(:split).permit(:status)
+    params.require(:split).permit(:status, :individual_balances)
   end
 end
 

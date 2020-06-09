@@ -10,7 +10,14 @@
 
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
-              <span class="text-thin">you spent <%= split.individual_balances %><%= @currency_symbol %></span>
+              <span class="text-thin">you spent
+              <div class="action-wrapper">
+                <%= simple_form_for split, html: {class: 'form-inline'} do |f| %>
+                  <%= f.input :individual_balances%><%= @currency_symbol %>
+                  <%= f.submit "Confirm", method: :patch, class:"btn btn-light", data: { turbolinks: true } %>
+                <% end %>
+                </div>
+              </span>
 
                <div class="action-wrapper">
                 <% if split.status = true %>
@@ -36,9 +43,13 @@
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
               <span class="text-thin">please pay <%= split.activity_cost.paid_by %>
-                <%= text_field :split, :individual_balances%>
-                <%= @currency_symbol %>
-                <%= split.individual_balances %><%= link_to "confirm", split_path(split, split: { individual_balances: 0.0 }), method: :patch, class: "btn btn-light btn-small btn-paid" %></span>
+                <div class="action-wrapper">
+                <%= simple_form_for split, html: {class: 'form-inline'} do |f| %>
+                  <%= f.input :individual_balances%><%= @currency_symbol %>
+                  <%= f.submit "Confirm", method: :patch, class:"btn btn-light", data: { turbolinks: true } %>
+                <% end %>
+                </div>
+              </span>
 
               <div class="action-wrapper">
                 <% if split.status = false %>
@@ -56,3 +67,4 @@
 
   </div>
 </div>
+

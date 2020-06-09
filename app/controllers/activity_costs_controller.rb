@@ -12,9 +12,14 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def create
     @group = Group.find(params[:group_id])
+    @members = @activity_cost.group.members
     @activity_cost = ActivityCost.new(activity_cost_params)
     @activity_cost.group = @group
     @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
+
+    @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
+
+    @activity_cost.split_type == 'evenly'? @activity_cost.outstanding = @activity_cost_individual * ( @members.length - 1 ) : @activity_cost.outstanding = @activity_cost.total_balance
 
     if @activity_cost.save
       split_cost(@activity_cost.split_type)
@@ -33,7 +38,11 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   def update
     if @activity_cost.update(activity_cost_params)
         @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
-        @activity_cost.update(total_balance: @activity_cost.total_balance)
+
+        @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
+
+        @activity_cost.split_type == 'evenly'? @activity_cost.outstanding = @activity_cost_individual * ( @members.length - 1 ) : @activity_cost.outstanding = @activity_cost.total_balance
+        @activity_cost.update(total_balance: @activity_cost.total_balance, outstanding: @activity_cost.outstanding)
         split_destroy
         split_cost(@activity_cost.split_type)
       redirect_to activity_cost_splits_path(@activity_cost), notice: 'Activity was successfully updated.'
@@ -56,11 +65,11 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def set_activity_cost
     @activity_cost = ActivityCost.find(params[:id])
+    @members = @activity_cost.group.members
     authorize @activity_cost
   end
 
   def split_cost(split_type)
-
     @members = @activity_cost.group.members
     @activity_cost.split_type = split_type
     @activity_cost.save
