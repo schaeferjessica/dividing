@@ -1,11 +1,3 @@
-<div class="splits-index setup">
-  <div class="container">
-    <div class="context">
-      <h1 class="heading">Okay members of <%= @activity_cost.group.group_name %>!</h1>
-      <p>Let's split the cost between us <strong><%= @activity_cost.split_type %></strong></p>
-      <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
-    </div>
-
       <% @splits.each do |split| %>
         <% if split.member.name == split.activity_cost.paid_by %>
         <div class="accordion open">
@@ -18,13 +10,13 @@
 
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
-              <span class="text-thin">you spent <%= split.individual_balances %> <%= split.activity_cost.currency %> </span>
+              <span class="text-thin">you spent <%= split.individual_balances %><%= @currency_symbol %></span>
 
               <div class="action-wrapper">
-                <% if split.status = false %>
-                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
-                <% else %>
+                <% if split.status = true %>
                   <button class="btn btn-light btn-small btn-paid"> paid</button>
+                <% else %>
+                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
                 <% end %>
               </div>
             </div>
@@ -43,13 +35,13 @@
 
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
-              <span class="text-thin">please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></span>
+              <span class="text-thin">please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %><%= @currency_symbol %></span>
 
               <div class="action-wrapper">
-                <% if split.status = false %>
-                  <button class="btn btn-light btn-small btn-paid"> paid</button>
+                <% if split.status == false %>
+                  <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, class: "btn btn-light btn-small btn-outstanding" %>
                 <% else %>
-                  <button class="btn btn-light btn-small btn-outstanding"> outstanding</button>
+                  <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, class: "btn btn-light btn-small btn-paid" %>
                 <% end %>
               </div>
             </div>
@@ -59,34 +51,4 @@
         <% end %>
       <% end %>
 
-      <div class="sum">
-        <p class="total">total cost: <%= @activity_cost.actual_cost %></p>
-        <p class="subtracting">subtracting cost - <%= @activity_cost.employer_contribution %></p>
-        <p class="additional">additional cost + <%= @activity_cost.service_tip %></p>
-        <p class="balance">total amount: <%= @activity_cost.total_balance %></p>
-      </div>
 
-      <div class="btn-wrapper">
-        <%= link_to "back", edit_group_activity_cost_path(@activity_cost.group, @activity_cost), class: "btn btn-light", data: { turbolinks: false } %>
-        <button class="btn btn-dark btn-link">send link</button>
-        <ul class="socialmedia-list is-active">
-        <li class="link">
-          <a href="" title="copie link" class="btn btn-light">
-            <i class="fas fa-link"></i>
-          </a>
-        </li>
-        <li  class="whatsapp">
-          <a href="" title="share on whats app" class="btn btn-light">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </li>
-        <li class="slack">
-          <a href="" title="shre on slack" class="btn btn-light">
-            <i class="fab fa-slack"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</div>

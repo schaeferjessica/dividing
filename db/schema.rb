@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_142809) do
+ActiveRecord::Schema.define(version: 2020_06_09_090432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_142809) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "actual_cost_cents", default: 0, null: false
     t.string "actual_cost_currency", default: "EUR", null: false
+    t.float "outstanding", default: 0.0
     t.index ["group_id"], name: "index_activity_costs_on_group_id"
   end
 

@@ -6,64 +6,19 @@
       <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
     </div>
 
-      <% @splits.each do |split| %>
-        <% if split.member.name == split.activity_cost.paid_by %>
-        <div class="accordion open">
-          <div class="acc-tab">
-            <button class="acc-btn">
-              <span><%= split.member.name %></span>
-              <span class="plus"> + </span>
-            </button>
-          </div>
+    <% if @activity_cost.split_type == 'evenly'%>
+      <%= render 'evenly', splits: @splits %>
+    <% else %>
+      <%= render 'individually', splits: @splits %>
+    <% end %>
 
-          <div class="acc-tabpanel">
-            <div class="acc-tabpanel-inner">
-              <span class="text-thin">you spent <%= split.individual_balances %><%= @currency_symbol %> </span>
-
-              <div class="action-wrapper">
-                <% if split.status == false %>
-                  <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, class: "btn btn-light btn-small btn-outstanding" %>
-                <% else %>
-                  <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, class: "btn btn-light btn-small btn-paid" %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <% else %>
-
-      <div class="accordion open">
-          <div class="acc-tab">
-            <button class="acc-btn">
-              <span><%= split.member.name %></span>
-              <span class="plus"> + </span>
-            </button>
-          </div>
-
-          <div class="acc-tabpanel">
-            <div class="acc-tabpanel-inner">
-              <span class="text-thin">please pay <%= split.activity_cost.paid_by %> <%= split.individual_balances %> <%= split.activity_cost.currency %></span>
-
-              <div class="action-wrapper">
-                <% if split.status == false %>
-                   <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, class: "btn btn-light btn-small btn-outstanding" %>
-                <% else %>
-                   <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, class: "btn btn-light btn-small btn-paid" %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <% end %>
-      <% end %>
 
       <div class="sum">
         <p class="total">subtotal: <%= @activity_cost.actual_cost %><%= @currency_symbol %></p>
-        <p class="subtracting">discount/prepaid amount - <%= @activity_cost.employer_contribution %><%= @currency_symbol %></p>
         <p class="additional">additional cost + <%= @activity_cost.service_tip %><%= @currency_symbol %></p>
+        <p class="subtracting">discount/prepaid amount - <%= @activity_cost.employer_contribution %><%= @currency_symbol %></p>
         <p class="balance">grand total: <%= @activity_cost.total_balance %><%= @currency_symbol %></p>
+        <p class="balance"><strong>Outstanding: <%= @activity_cost.outstanding%><%= @currency_symbol %></strong></p>
       </div>
 
       <div class="btn-wrapper">
