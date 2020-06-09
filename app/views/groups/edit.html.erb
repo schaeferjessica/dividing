@@ -19,7 +19,8 @@
   		     <% end %>
 		    </div>
   		<div class="btn-wrapper">
-  		  <%= link_to "back", groups_path, class:"btn btn-dark", data: { turbolinks: false } %>
+        <%= link_to "🏠", root_path, class:"btn btn-light", style:"font-size:20px", data: { turbolinks: false } %>
+  		  <%= link_to "back", groups_path, class:"btn btn-light", data: { turbolinks: false } %>
   		  <% if @group.members.any? %>
   		  <%= link_to "start a new split with this team ", new_group_activity_cost_path(@group), class:"btn btn-light" %>
   		  <% else %>
