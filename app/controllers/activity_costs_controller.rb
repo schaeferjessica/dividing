@@ -17,9 +17,9 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
     @activity_cost.group = @group
     @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
 
-    @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
+    # @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
 
-    @activity_cost.split_type == 'evenly'? @activity_cost.outstanding = @activity_cost_individual * ( @members.length - 1 ) : @activity_cost.outstanding = @activity_cost.total_balance
+    # @activity_cost.split_type == 'evenly'? @activity_cost.outstanding = @activity_cost_individual * ( @members.length - 1 ) : @activity_cost.outstanding = @activity_cost.total_balance
 
     if @activity_cost.save
       split_cost(@activity_cost.split_type)
@@ -39,10 +39,10 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
     if @activity_cost.update(activity_cost_params)
         @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
 
-        @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
+        # @activity_cost_individual = (@activity_cost.total_balance / @members.length).round(2)
 
-        @activity_cost.split_type == 'evenly'? @activity_cost.outstanding = @activity_cost_individual * ( @members.length - 1 ) : @activity_cost.outstanding = @activity_cost.total_balance
-        @activity_cost.update(total_balance: @activity_cost.total_balance, outstanding: @activity_cost.outstanding)
+        # @activity_cost.split_type == 'evenly'? @activity_cost.outstanding = @activity_cost_individual * ( @members.length - 1 ) : @activity_cost.outstanding = @activity_cost.total_balance
+        @activity_cost.update(total_balance: @activity_cost.total_balance)
         split_destroy
         split_cost(@activity_cost.split_type)
       redirect_to activity_cost_splits_path(@activity_cost), notice: 'Activity was successfully updated.'
