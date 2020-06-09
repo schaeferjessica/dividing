@@ -1,12 +1,12 @@
 <div class="members setup">
   <div class="container">
-  <h1><span>2 </span>names spliting it between<sup> *</sup></h1>
+  <h1><span>2 </span>group members<sup> *</sup></h1>
     <p>add the names of everyone in the group. Don't forget to include yourself!</p>
        <div class="form-member">
         <%= simple_form_for [@group, @member], remote: true do |f| %>
         <% f.hidden_field :group_id, value: params[:group_id] %>
         <div class="wrapper">
-          <%= f.input :name, label: false, placeholder: ' 👉 please type one name and press + or enter to add more ..' %>
+          <%= f.input :name, label: false, placeholder: ' 👉 type a name and press + or enter ' %>
           <%= f.submit '+', class:"cross"%>
         </div>
         <% @group.members.each do |member| %>
