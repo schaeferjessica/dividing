@@ -34,3 +34,4 @@ end
 
 gem 'money-rails', '~>1.12'
 gem 'currencies',  :require => 'iso4217'
+gem 'cloudinary', '~> 1.12.0'
