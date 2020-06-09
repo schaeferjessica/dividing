@@ -10,6 +10,7 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create, :update]
   end
 
   def update
+    # @activity_cost = ActivityCost.find(params[:activity_cost_id])
     @split = Split.find(params[:id])
     authorize @split
     @split.update(split_params)

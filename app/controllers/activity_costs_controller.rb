@@ -12,7 +12,7 @@ skip_before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def create
     @group = Group.find(params[:group_id])
-    @members = @activity_cost.group.members
+    @members = @group.members
     @activity_cost = ActivityCost.new(activity_cost_params)
     @activity_cost.group = @group
     @activity_cost.total_balance = @activity_cost.actual_cost + @activity_cost.service_tip - @activity_cost.employer_contribution
