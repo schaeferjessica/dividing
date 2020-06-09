@@ -3,11 +3,12 @@
   h1,
   h2,
   p  {
-      color: $black-color;
+    color: $black-color;
   }
 
   h1 {
     margin-top: 35px;
+    margin-bottom: 10px;
   }
 
   p  {
@@ -46,7 +47,7 @@
     border: none;
     background-color: $white-color;
     color: rgba(255, 255, 255, 0.76);
-    font-size: 14px;
+    font-size: 16px;
     -webkit-appearance: none; // hide arrow for chrome
     -moz-appearance: none; // hide arrow for firefox
   }
@@ -58,5 +59,41 @@
     appearance:none;
     padding: 10px 0;
     margin: 10px 0;
+  }
+
+  .wrapper {
+    margin: 60px  0;
+  }
+
+  .col-form-label {
+      display: none;
+  }
+
+  .form-check-label {
+    display: inline-block;
+    text-transform: uppercase;
+    color: $black-color;
+    font-size: 14px;
+  }
+
+  input.is-valid ~ .form-check-label {
+    color: $black-color;
+  }
+
+  .form-check-input {
+    position: static;
+    margin-right: 8px;
+    background-color: transparent;
+  }
+
+  .form-group.radio_buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+    margin-top: 25px;
+  }
+
+  .form-check {
+    margin-right: 35px;
   }
 }

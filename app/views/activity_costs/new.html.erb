@@ -1,19 +1,29 @@
 <div class="activity-new setup">
   <div class="container">
-    <h1><span>3 </span>total initial cost<sup> *</sup></h1>
     <%= simple_form_for [@group, @activity_cost] do |f| %>
       <div class="form-wrapper">
-        <%= f.input :split_type, as: :radio_buttons, collection: ['evenly', 'individually']%>
-        <%= f.input :actual_cost, label: 'Total amount paid', placeholder: '👉 please type the the total amount here ..' %>
-        <h2>total cost was paid by<sup> *</sup></h2>
-        <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
-        <h2>additional costs</h2>
-        <p class="text-thin">here you can add additional costs like a tip.</p>
-        <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
-        <h2>cost reductions</h2>
-        <p class="text-thin">here you can subtract any discounts or amounts that have already been paid.</p>
-        <%= f.input :employer_contribution, label: 'Employer contribution or Discount', placeholder: '👉 Employer contribution or discount (optional)..' %>
-        <%= f.input :currency, collection: ActivityCost::CURRENCY, label: 'Currency', include_blank: false %>
+        <div class="wrapper">
+          <h1><span>3 </span>total initial cost<sup> *</sup></h1>
+          <%= f.input :actual_cost, label: 'total amount paid', placeholder: '👉 please type the the total amount here ..' %>
+          <%= f.input :currency, collection: ActivityCost::CURRENCY, label: 'Currency', include_blank: false %>
+        </div>
+        <div class="wrapper">
+          <h2>total cost was paid by<sup> *</sup></h2>
+          <%= f.input :paid_by, collection: @members, value_method: :name, include_blank: false %>
+        </div>
+        <div class="wrapper">
+          <h2>split evenly or individually<sup> *</sup></h2>
+          <p>here you can choose if you would like to divid the total cost evenly or individually between everyone in the group.</p>
+          <%= f.input :split_type, as: :radio_buttons, collection: ['evenly', 'individualy']%>
+        </div>
+        <div class="wrapper">
+          <h2>additional costs</h2>
+          <p class="text-thin">here you can add additional costs like a tip.</p>
+          <%= f.input :service_tip, label: 'Additional cost', placeholder: '👉 Any service tip or aditional cost paid (optional)..' %>
+          <h2>cost reductions</h2>
+          <p class="text-thin">here you can subtract any discounts or amounts that have already been paid.</p>
+          <%= f.input :employer_contribution, label: 'Employer contribution or Discount', placeholder: '👉 Employer contribution or discount (optional)..' %>
+        </div>
       </div>
       <div class="btn-wrapper">
         <%= link_to "back", new_group_path, class:"btn btn-light", data: { turbolinks: false }  %>
