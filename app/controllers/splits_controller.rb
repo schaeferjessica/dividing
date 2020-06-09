@@ -6,6 +6,14 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create, :update]
     @currency_symbol = ISO4217::Currency.from_code(@activity_cost.currency).symbol
     @splits = policy_scope(Split)
     @splits = @activity_cost.splits
+    @balance = @activity_cost.total_balance
+    @splits.each do |split|
+      if split.status == true
+        @balance = @balance - split.individual_balances
+      end
+    end
+    @activity_cost.outstanding = @balance
+    @activity_cost.update(outstanding: @activity_cost.outstanding)
     authorize @splits
   end
 
