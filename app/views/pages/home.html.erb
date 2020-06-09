@@ -17,12 +17,12 @@
       <li class="nav-item dropdown">
         <p class="username"><%= current_user.username %></p>
         <% if current_user.photo.attached? %>
-          <button data-target="edit-container">
-            <%= cl_image_tag current_user.photo.key, :crop=>"fill", class: "avatar overlay-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <button  class="btn-overlay" data-target="edit-container">
+            <%= cl_image_tag current_user.photo.key, :crop=>"fill" %>
           </button>
         <% else %>
-          <button data-target="edit-container">
-            <%= image_tag "profile.png", class: "avatar overlay-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <button class="btn-overlay" data-target="edit-container">
+            <%= image_tag "profile.png", class: "avatar overlay-toggle"%>
           </button>
         <% end %>
         <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
