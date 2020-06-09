@@ -12,12 +12,54 @@
     display: flex;
     padding: 5px 20px;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
 
-  .dropdown {
+  .nav-wrapper {
     display: flex;
     align-items: center;
+
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+
+    &.is-active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 0;
+      top: 65px;
+      width: 100%;
+      background-color: white;
+      padding: 20px 0;
+
+      .username,
+      .dropdown-item {
+        width: 100%;
+        margin-right: -28px;
+      }
+
+      .btn-overlay {
+        display: none;
+      }
+    }
+  }
+
+  .burger {
+    display: none;
+  }
+
+
+  @include media-breakpoint-down(xs) {
+  .burger {
+    display: block;
+    margin: 5px;
+    }
+  }
+
+  .fa-grip-lines {
+    font-size: 18px;
   }
 
   .username {
@@ -40,9 +82,9 @@
 }
 
 .dropdown-item {
-    font-weight: 300;
-    font-size: 14px;
-    padding: 12px;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 12px;
 
   &:hover {
     background-color: $blue-color;
