@@ -22,6 +22,7 @@ const closest = (element, selector, checkSelf = true) => {
 
 // if user clicked outsite of overlay (and the overlay is open) = close it
 const onBodyClick = event => {
+  console.log('clicked body')
   const { target } = event;
   const insideOverlay = closest(target, '.overlay-wrapper');
   const insideNavbar = closest(target, '.navbar');
@@ -30,6 +31,7 @@ const onBodyClick = event => {
 
 
   if (isOpen) {
+    console.log(isOpen)
     overlayWrapper.classList.remove('is-active');
     // hide all overlays (reset)
     overlays.forEach(overlay => overlay.classList.add('is-hidden'));
@@ -39,8 +41,10 @@ const onBodyClick = event => {
 if (overlayWrapper) {
   overlayBtns.forEach(button => {
     button.addEventListener('click', () => {
+      console.log('click')
       const target = document.querySelector(`#${button.dataset.target}`);
       // activate overlay wrapper
+      console.log(overlayWrapper)
       overlayWrapper.classList.toggle('is-active');
       // hide all overlays (reset)
       overlays.forEach(overlay => overlay.classList.add('is-hidden'));
