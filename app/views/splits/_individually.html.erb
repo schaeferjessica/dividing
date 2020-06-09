@@ -1,4 +1,4 @@
-      <% @splits.each do |split| %>
+      <% @splits.sort.each do |split| %>
         <% if split.member.name == split.activity_cost.paid_by %>
         <div class="accordion open">
           <div class="acc-tab">
