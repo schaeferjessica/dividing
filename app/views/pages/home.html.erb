@@ -16,7 +16,11 @@
       </li>
       <li class="nav-item dropdown">
         <p class="username"><%= current_user.username %></p>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/jschaefer", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, :crop=>"fill", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "profile.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <button class="dropdown-item btn-edit btn-overlay" data-target="edit-container">edit your profile ✏️</button>
           <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -41,8 +45,6 @@
     <button class="btn-minimal">impressum</button>
   </div>
 </section>
-
-
 
 <!-- cookie -->
 <!-- <a role="button" class="cookie"><span>🍪</span>accept me </a> -->
@@ -114,9 +116,7 @@
       <%= f.error_notification %>
       <div class="form-inputs">
         <%= f.input :email, required: true, autofocus: true %>
-        <%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <!-- <p>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></p> -->
-        <%# end %>
+        <%= f.input :photo, as: :file %>
         <%= f.input :password,
                     hint: "leave it blank if you don't want to change it",
                     required: false,
