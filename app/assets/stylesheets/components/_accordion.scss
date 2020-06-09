@@ -28,6 +28,18 @@
     padding-bottom: 20px;
   }
 
+  @include media-breakpoint-down(xs) {
+    .acc-tabpanel-inner {
+      display: block;
+      margin: 5px;
+    }
+
+    .text-thin {
+      margin-bottom: 15px;
+      margin-left: 5px;
+    }
+  }
+
   .action-wrapper {
     display: flex;
     align-items: center;

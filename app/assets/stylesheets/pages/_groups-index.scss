@@ -4,7 +4,7 @@
     border-radius: 0;
     margin: 35px 0;
   }
-  
+
   .item-row {
     color: black;
     display: flex;
@@ -33,17 +33,9 @@
   .group-name {
     margin: 20px 0;
   }
-
-  @include media-breakpoint-down(xs) {
-    .acc-tabpanel-inner {
-      display: block;
-    }
-
-    .text-thin {
-      margin: 5px;
-    }
-  }
 }
+
+
 
 .action-wrapper.index-wrapper {
   display: block;

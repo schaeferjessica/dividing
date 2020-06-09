@@ -10,6 +10,8 @@
   letter-spacing: 0.5px;
   border-radius: 0;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 
   &:hover {
     background-color: $black-color;
@@ -89,5 +91,5 @@
 }
 
 .btn-link:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
