@@ -21,7 +21,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <link href="pizza.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/assets/pizza.png" rel="apple-touch-icon" type="image/png" />
+    <%= favicon_link_tag asset_path('pizza.png') %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
