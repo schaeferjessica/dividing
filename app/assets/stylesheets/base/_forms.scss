@@ -28,3 +28,16 @@ label {
   border-color: $blue-color;
   box-shadow: none;
 }
+
+.file.optional {
+  background-color: $base-color;
+  color: $black-color;
+  padding: 10px 5px;
+  width: 100%;
+  font-weight: 400;
+}
+
+.form-control-file {
+  display: none;
+}
+
