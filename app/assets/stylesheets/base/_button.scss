@@ -1,5 +1,4 @@
 .btn {
-  outline: none;
   font-family: $font-hind;
   font-size: 14px;
   padding: 15px 25px;
@@ -13,6 +12,7 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  outline: none;
 
   &:hover {
     background-color: $black-color;
@@ -25,6 +25,7 @@
     border-color: transparent;
     box-shadow: transparent;
     box-shadow: none;
+    outline: none;
   }
 }
 
