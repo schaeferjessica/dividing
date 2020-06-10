@@ -22,7 +22,7 @@ skip_before_action :authenticate_user!, only: [:new, :index, :create, :update]
     @split = Split.find(params[:id])
     authorize @split
     @split.update(split_params)
-    redirect_to activity_cost_splits_path(@split.activity_cost)
+    redirect_to activity_cost_splits_path(@split.activity_cost, anchor: "split-#{@split.id}")
   end
 
   private
