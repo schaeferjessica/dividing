@@ -21,3 +21,8 @@
 .lighter {
   font-weight: 300;
 }
+
+
+.was-validated .form-control:valid, .form-control.is-valid {
+    border-color: $blue-color;
+}
