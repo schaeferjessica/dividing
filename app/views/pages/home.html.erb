@@ -16,7 +16,7 @@
       </li>
       <li class="burger"><i class="fas fa-grip-lines"></i></li>
       <li class="nav-item nav-wrapper">
-        <p class="username"><%= current_user.username %></p>
+        <p class="username btn-overlay overlay-toggle" data-target="edit-container"><%= current_user.username %></p>
         <% if current_user.photo.attached? %>
           <button  class="btn-overlay" data-target="edit-container">
             <%= cl_image_tag current_user.photo.key, :crop=>"fill", class: "avatar overlay-toggle" %>
