@@ -13,7 +13,7 @@
               <span class="text-thin">you spent
               <div class="action-wrapper">
                 <%= simple_form_for split, html: {class: 'form-inline'} do |f| %>
-                  <%= f.input :individual_balances%><%= @currency_symbol %>
+                  <%= f.input :individual_balances%><%#= @currency_symbol %>
                   <%= f.submit "confirm", method: :patch, class:"btn btn-light btn-small", data: { turbolinks: true } %>
                 <% end %>
                 </div>
@@ -44,6 +44,7 @@
             <div class="acc-tabpanel-inner">
               <span class="text-thin">please pay <%= split.activity_cost.paid_by %>
                 <div class="action-wrapper">
+
                 <%= simple_form_for split, html: {class: 'form-inline'}, remote: true do |f| %>
                   <%= f.input :individual_balances%><%= @currency_symbol %>
                   <%= f.submit "confirm", method: :patch, class:"btn btn-light btn-small", data: { turbolinks: true } %>
