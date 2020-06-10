@@ -13,7 +13,7 @@
           <button type="button" class="btn btn-light"><%= member.name %><%= link_to "🗑", group_member_path(@group, member), remote: true, method: :delete, class:"delete" %></button>
         <% end %>
         <div class="btn-wrapper">
-          <%= link_to "🏠", root_path, class:"btn btn-light", style:"font-size:20px", data: { turbolinks: false } %>
+          <%= link_to "🏠", root_path, class:"btn btn-light btn-icon", data: { turbolinks: false } %>
           <%= link_to "back", new_group_path, class:"btn btn-light", data: { turbolinks: false } %>
             <% if @group.members.any? %>
               <%= link_to "next", new_group_activity_cost_path(@group), class:"btn btn-light", data: { turbolinks: false } %>
