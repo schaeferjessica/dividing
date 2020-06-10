@@ -34,27 +34,56 @@
     border-color: $blue-color;
   }
 
-  .btn-wrapper ul {
-    display: flex;
-    transition: all .3s ease;
+  .share-wrapper {
     position: relative;
+    z-index: 1;
 
-    &.is-active {
-      display: none;
-    }
-
-    li {
-      position: absolute;
-    }
-
-    .whatsapp {
-      left: 84px;
-    }
-
-    .slack {
-      left: 165px;
+    .btn-icon {
+      @include media-breakpoint-down(xs) {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        justify-content: center;
+      }
     }
   }
+
+  .btn-link {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-wrapper .btn {
+    max-height: 44px;
+  }
+
+  .btn-wrapper ul {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: all .3s ease;
+
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+      flex-direction: column;
+      left: 0;
+      bottom: 100%;
+      top: inherit;
+      padding: 5px;
+    }
+
+    &.is-active {
+      opacity: 0;
+      pointer-events: none;
+      left: 0;
+
+      @include media-breakpoint-down(xs) {
+        bottom: 0;
+      }
+    }
+  }
+
 
   .form-inline {
     width: 100%;
