@@ -55,4 +55,21 @@
       left: 150px;
     }
   }
+
+  .form-inline {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .accordion .action-wrapper {
+    justify-content: end;
+  }
+
+  .accordion .acc-tabpanel-inner {
+      display: block;
+  }
+
+  .form-control:focus {
+    background-color: $base-color;
+  }
 }
