@@ -16,10 +16,10 @@
       </li>
       <li class="burger"><i class="fas fa-grip-lines"></i></li>
       <li class="nav-item nav-wrapper">
-        <p class="username"><%= current_user.username %></p>
+        <p class="username btn-overlay overlay-toggle" data-target="edit-container"><%= current_user.username %></p>
         <% if current_user.photo.attached? %>
           <button  class="btn-overlay" data-target="edit-container">
-            <%= cl_image_tag current_user.photo.key, :crop=>"fill" %>
+            <%= cl_image_tag current_user.photo.key, :crop=>"fill", class: "avatar overlay-toggle" %>
           </button>
         <% else %>
           <button class="btn-overlay" data-target="edit-container">
@@ -122,7 +122,15 @@
                     required: false,
                     input_html: { autocomplete: "new-username" } %>
         <%= f.input :email, required: false, autofocus: false %>
-        <%= f.input :photo, as: :file, required: false %>
+        <%= f.input :photo, as: :file, required: false, label: "Photo"%>
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    label: "Update password",
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
                     hint: "we need your current password to confirm your changes",
                     required: true,

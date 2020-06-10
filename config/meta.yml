@@ -1,0 +1,5 @@
+meta_product_name: "splitting.pro"
+meta_title: "splitting"
+meta_description: "Keep track of all your group expenses. It's quick, easy, and stress-free."
+meta_image: "cover1.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

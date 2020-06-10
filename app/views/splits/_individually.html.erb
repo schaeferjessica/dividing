@@ -13,8 +13,8 @@
               <span class="text-thin">you spent
               <div class="action-wrapper">
                 <%= simple_form_for split, html: {class: 'form-inline'} do |f| %>
-                  <%= f.input :individual_balances%><%= @currency_symbol %>
-                  <%= f.submit "Confirm", method: :patch, class:"btn btn-light", data: { turbolinks: true } %>
+                  <%= f.input :individual_balances%><%#= @currency_symbol %>
+                  <%= f.submit "confirm", method: :patch, class:"btn btn-light btn-small", data: { turbolinks: true } %>
                 <% end %>
                 </div>
               </span>
@@ -32,7 +32,7 @@
 
       <% else %>
 
-      <div class="accordion open">
+      <div class="accordion open" id="split-<%= split.id %>">
           <div class="acc-tab">
             <button class="acc-btn">
               <span><%= split.member.name %></span>
@@ -44,18 +44,19 @@
             <div class="acc-tabpanel-inner">
               <span class="text-thin">please pay <%= split.activity_cost.paid_by %>
                 <div class="action-wrapper">
-                <%= simple_form_for split, html: {class: 'form-inline'} do |f| %>
-                  <%= f.input :individual_balances%><%= @currency_symbol %>
-                  <%= f.submit "Confirm", method: :patch, class:"btn btn-light", data: { turbolinks: true } %>
+
+                <%= simple_form_for split, html: {class: 'form-inline'}, remote: true do |f| %>
+                  <%= f.input :individual_balances%><%#= @currency_symbol %>
+                  <%= f.submit "confirm", method: :patch, class:"btn btn-light btn-small", data: { turbolinks: true } %>
                 <% end %>
                 </div>
               </span>
 
               <div class="action-wrapper">
                 <% if split.status == false %>
-                  <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, class: "btn btn-light btn-small btn-outstanding" %>
+                  <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, remote: true, class: "btn btn-light btn-small btn-outstanding" %>
                 <% else %>
-                  <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, class: "btn btn-light btn-small btn-paid" %>
+                  <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, remote: true, class: "btn btn-light btn-small btn-paid" %>
                 <% end %>
               </div>
             </div>

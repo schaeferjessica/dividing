@@ -17,3 +17,27 @@ label {
     font-weight: 300;
   }
 }
+
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  border-color: $blue-color;
+  background-image: none;
+}
+
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  border-color: $blue-color;
+  box-shadow: none;
+}
+
+.file.optional {
+  background-color: $base-color;
+  color: $black-color;
+  padding: 10px 5px;
+  width: 100%;
+  font-weight: 400;
+}
+
+.form-control-file {
+  display: none;
+}
+

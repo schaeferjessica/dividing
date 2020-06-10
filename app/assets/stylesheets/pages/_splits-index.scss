@@ -48,11 +48,28 @@
     }
 
     .whatsapp {
-      left: 75px;
+      left: 84px;
     }
 
     .slack {
-      left: 150px;
+      left: 165px;
     }
+  }
+
+  .form-inline {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .accordion .action-wrapper {
+    justify-content: flex-end;
+  }
+
+  .accordion .acc-tabpanel-inner {
+      display: block;
+  }
+
+  .form-control:focus {
+    background-color: $base-color;
   }
 }
