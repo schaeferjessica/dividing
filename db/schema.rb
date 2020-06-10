@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
   end
 
   create_table "activity_costs", force: :cascade do |t|
-    t.float "actual_cost", default: 0.0
-    t.float "service_tip", default: 0.0
-    t.float "employer_contribution", default: 0.0
+    t.float "actual_cost"
+    t.float "service_tip"
+    t.float "employer_contribution"
     t.float "total_balance", default: 0.0
     t.string "currency"
     t.string "paid_by"
@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "actual_cost_cents", default: 0, null: false
-    t.string "actual_cost_currency", default: "EUR", null: false
     t.float "outstanding", default: 0.0
     t.index ["group_id"], name: "index_activity_costs_on_group_id"
   end
@@ -78,29 +76,15 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "state"
-    t.integer "amount_cents", default: 0, null: false
-    t.string "checkout_session_id"
-    t.bigint "user_id", null: false
-    t.bigint "split_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["split_id"], name: "index_orders_on_split_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
   create_table "splits", force: :cascade do |t|
     t.bigint "activity_cost_id", null: false
     t.bigint "member_id", null: false
-    t.float "individual_balances", default: 0.0
+    t.float "individual_balances"
     t.string "payment_type"
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "split_type"
-    t.integer "individual_balances_cents", default: 0, null: false
-    t.string "individual_balances_currency", default: "EUR", null: false
     t.index ["activity_cost_id"], name: "index_splits_on_activity_cost_id"
     t.index ["member_id"], name: "index_splits_on_member_id"
   end
@@ -126,8 +110,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
   add_foreign_key "group_members", "members"
   add_foreign_key "groups", "users"
   add_foreign_key "members", "users"
-  add_foreign_key "orders", "splits"
-  add_foreign_key "orders", "users"
   add_foreign_key "splits", "activity_costs"
   add_foreign_key "splits", "members"
 end
