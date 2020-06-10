@@ -14,14 +14,13 @@
   align-items: center;
   outline: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $black-color;
     color: $white-color;
   }
 
   &:focus {
-    color: transparent;
-    background-color: transparent;
     border-color: transparent;
     box-shadow: transparent;
     box-shadow: none;
@@ -32,7 +31,8 @@
 .btn-light {
   background-color: transparent;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $black-color;
     color: #fff;
   }
@@ -43,7 +43,8 @@
   color: #fff;
   border: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $blue-color;
     color: $black-color;
   }
@@ -71,14 +72,13 @@
   color: $black-color;
   border: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $blue-color;
     color: $black-color;
   }
 
   &:focus {
-    color: transparent;
-    background-color: transparent;
     border-color: transparent;
     box-shadow: transparent;
     box-shadow: none;
