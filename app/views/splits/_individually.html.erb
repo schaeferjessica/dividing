@@ -55,9 +55,9 @@
 
             <div class="action-wrapper">
               <% if split.status == false %>
-                <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, remote: true, class: "btn btn-light btn-small btn-outstanding" %>
+                <%= link_to "oustanding", split_path(split, split: { status: true }), method: :patch, remote: true, class: "btn btn-light btn-small btn-outstanding", data: {turbolinks: false} %>
               <% else %>
-                <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, remote: true, class: "btn btn-light btn-small btn-paid" %>
+                <%= link_to "paid", split_path(split, split: { status: false }), method: :patch, remote: true, class: "btn btn-light btn-small btn-paid", data: {turbolinks: false} %>
               <% end %>
             </div>
           </div>

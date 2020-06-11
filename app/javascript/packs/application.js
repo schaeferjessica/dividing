@@ -16,11 +16,9 @@ import * as Accordion from '../components/accordion';
 import { initSocialMedia } from '../components/socialmedia';
 export { Overlay, Heading, Cookie, Accordion, Navbar };
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your JS functions here
   initSocialMedia();
+  $('[data-toggle="popover"]').popover()
+  $('body').tooltip({selector: '[data-toggle="tooltip"]'});
 });
