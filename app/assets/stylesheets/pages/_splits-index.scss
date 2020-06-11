@@ -34,6 +34,11 @@
     border-color: $blue-color;
   }
 
+  label {
+    font-size: 14px;
+    font-weight: 300;
+  }
+
   .share-wrapper {
     position: relative;
     z-index: 1;
@@ -94,11 +99,33 @@
     justify-content: flex-end;
   }
 
-  .accordion .acc-tabpanel-inner {
-      display: block;
-  }
-
   .form-control:focus {
     background-color: $base-color;
+  }
+
+  @include media-breakpoint-up(lg) {
+    .split-acc-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .split-acc {
+      flex-basis: 47%;
+    }
+  }
+}
+
+.splits-evenly {
+  .acc-tabpanel-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.split-individually {
+  .acc-tabpanel-inner {
+      display: block;
   }
 }

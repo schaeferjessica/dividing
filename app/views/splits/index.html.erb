@@ -6,47 +6,46 @@
       <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
     </div>
 
-<!--     <div id="splits-container"> -->
+    <div class="acc-wrapper">
       <% if @activity_cost.split_type == 'evenly'%>
         <%= render 'evenly', splits: @splits %>
       <% else %>
         <%= render 'individually', splits: @splits %>
       <% end %>
-<!--     </div> -->
+    </div>
 
+    <div class="sum">
+      <p class="total">subtotal: <%= @activity_cost.actual_cost %><%= @currency_symbol %></p>
+      <p class="additional">additional cost + <%= @activity_cost.service_tip %><%= @currency_symbol %></p>
+      <p class="subtracting">discount/prepaid amount - <%= @activity_cost.employer_contribution %><%= @currency_symbol %></p>
+      <p class="balance">grand total: <%= @activity_cost.total_balance %><%= @currency_symbol %></p>
+      <p class="balance"><strong>Outstanding: <%= @activity_cost.outstanding%><%= @currency_symbol %></strong></p>
+    </div>
 
-      <div class="sum">
-        <p class="total">subtotal: <%= @activity_cost.actual_cost %><%= @currency_symbol %></p>
-        <p class="additional">additional cost + <%= @activity_cost.service_tip %><%= @currency_symbol %></p>
-        <p class="subtracting">discount/prepaid amount - <%= @activity_cost.employer_contribution %><%= @currency_symbol %></p>
-        <p class="balance">grand total: <%= @activity_cost.total_balance %><%= @currency_symbol %></p>
-        <p class="balance"><strong>Outstanding: <%= @activity_cost.outstanding%><%= @currency_symbol %></strong></p>
+    <div class="btn-wrapper">
+      <%= link_to "🏠", root_path, class:"btn btn-light btn-icon", data: { turbolinks: false } %>
+      <%= link_to "edit", edit_group_activity_cost_path(@activity_cost.group, @activity_cost) , class: "btn btn-light", data: { turbolinks: false } %>
+      <div class="share-wrapper">
+          <button class="btn btn-dark btn-link">send link</button>
+          <ul class="socialmedia-list is-active">
+          <li class="link">
+            <button class="btn btn-light btn-icon" data-container="body" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+              <i class="fas fa-link"></i>
+            </button>
+          </li>
+          <li  class="whatsapp">
+            <button class="btn btn-light btn-icon" onclick="window.location.href='whatsapp://app';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+              <i class="fab fa-whatsapp"></i>
+            </button>
+          </li>
+          <li class="slack">
+            <button class="btn btn-light btn-icon" onclick="window.location.href='slack://open';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+              <i class="fab fa-slack"></i>
+            </button>
+          </li>
+        </ul>
       </div>
-
-      <div class="btn-wrapper">
-        <%= link_to "🏠", root_path, class:"btn btn-light btn-icon", data: { turbolinks: false } %>
-        <%= link_to "edit", edit_group_activity_cost_path(@activity_cost.group, @activity_cost) , class: "btn btn-light", data: { turbolinks: false } %>
-        <div class="share-wrapper">
-            <button class="btn btn-dark btn-link">send link</button>
-            <ul class="socialmedia-list is-active">
-            <li class="link">
-              <button class="btn btn-light btn-icon" data-container="body" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
-                <i class="fas fa-link"></i>
-              </button>
-            </li>
-            <li  class="whatsapp">
-              <button class="btn btn-light btn-icon" onclick="window.location.href='whatsapp://app';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
-                <i class="fab fa-whatsapp"></i>
-              </button>
-            </li>
-            <li class="slack">
-              <button class="btn btn-light btn-icon" onclick="window.location.href='slack://open';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
-                <i class="fab fa-slack"></i>
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
+    </div>
 
   </div>
 </div>

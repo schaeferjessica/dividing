@@ -6,7 +6,7 @@
         <%= simple_form_for [@group, @member], remote: true do |f| %>
         <% f.hidden_field :group_id, value: params[:group_id] %>
         <div class="wrapper">
-          <%= f.input :name, label: false, placeholder: ' 👉 type a name and press + or enter ' %>
+          <%= f.input :name, label: false, placeholder: '👉🏼 type a name and press + or enter ' %>
           <%= f.submit '+', class:"cross"%>
         </div>
         <% @group.members.each do |member| %>
