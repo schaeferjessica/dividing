@@ -1,3 +1,5 @@
+
+const initSocialMedia = () => {
 const btnLink = document.querySelector('.btn-link');
 const socialList = document.querySelector('.socialmedia-list')
 
@@ -64,4 +66,6 @@ whatsAppBtn && whatsAppBtn.addEventListener('click', function(event) {
     console.log('Oops, unable to copy');
   }
 });
+}
 
+export {initSocialMedia}
