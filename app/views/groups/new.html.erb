@@ -13,7 +13,7 @@
 
   <div class="accordion-wrapper">
     <% if current_user %>
-      <h2 class="font-weight-normal">saved groups<sup> *</sup></h2>
+      <h2>saved groups</h2>
       <p class="text-thin">here you can see your saved groups and start a new split.</p>
 
       <% current_user.groups.each do |group| %>
@@ -29,7 +29,7 @@
 
           <div class="acc-tabpanel">
             <div class="acc-tabpanel-inner">
-              <div class="text-thin">
+              <div class="lighter">
                 <% group.members.each do |member| %>
                 <div>
                   <%= member.name %>

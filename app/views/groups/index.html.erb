@@ -3,7 +3,7 @@
 
     <div class="accordion-wrapper">
       <% if current_user %>
-        <h2>saved groups<sup>*</sup></h2>
+        <h2>saved groups</h2>
           <p class="lighter">here you can see your saved groups and start a new split.</p>
 
           <% current_user.groups.each do |group| %>
@@ -39,7 +39,7 @@
 
   <div class="accordion-wrapper">
     <% if current_user %>
-      <h2>saved splits<sup>*</sup></h2>
+      <h2>saved splits</h2>
       <p class="lighter">here you can see your previous split.</p>
       <% current_user.groups.each do |group| %>
         <div class="accordion">
