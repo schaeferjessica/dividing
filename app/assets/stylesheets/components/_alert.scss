@@ -1,8 +1,24 @@
 .alert {
+  font-family: $font-sans;
+  font-size: 14px;
   position: fixed;
   bottom: 16px;
   right: 16px;
   z-index: 1000;
+
+  .close {
+    font-family: $font-sans;
+    color: $black-color;
+    opacity: 1;
+    top: -2px;
+  }
+}
+
+.alert-info,
+.alert-warning {
+    color: $black-color;
+    background-color: $blue-color;
+    border-color: $blue-color;
 }
 
 @include media-breakpoint-down(xs) {
@@ -10,5 +26,3 @@
     bottom: 100px;
   }
 }
-
-
