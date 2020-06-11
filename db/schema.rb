@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
   end
 
   create_table "activity_costs", force: :cascade do |t|
-    t.float "actual_cost", default: 0.0
-    t.float "service_tip", default: 0.0
-    t.float "employer_contribution", default: 0.0
+    t.float "actual_cost"
+    t.float "service_tip"
+    t.float "employer_contribution"
     t.float "total_balance", default: 0.0
     t.string "currency"
     t.string "paid_by"
@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
     t.bigint "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "actual_cost_cents", default: 0, null: false
-    t.string "actual_cost_currency", default: "EUR", null: false
     t.float "outstanding", default: 0.0
     t.index ["group_id"], name: "index_activity_costs_on_group_id"
   end
@@ -81,14 +79,12 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
   create_table "splits", force: :cascade do |t|
     t.bigint "activity_cost_id", null: false
     t.bigint "member_id", null: false
-    t.float "individual_balances", default: 0.0
+    t.float "individual_balances"
     t.string "payment_type"
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "split_type"
-    t.integer "individual_balances_cents", default: 0, null: false
-    t.string "individual_balances_currency", default: "EUR", null: false
     t.index ["activity_cost_id"], name: "index_splits_on_activity_cost_id"
     t.index ["member_id"], name: "index_splits_on_member_id"
   end

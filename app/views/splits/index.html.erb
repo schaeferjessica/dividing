@@ -24,27 +24,29 @@
       </div>
 
       <div class="btn-wrapper">
-        <%= link_to "🏠", root_path, class:"btn btn-light", style:"font-size:20px", data: { turbolinks: false } %>
+        <%= link_to "🏠", root_path, class:"btn btn-light btn-icon", data: { turbolinks: false } %>
         <%= link_to "edit", edit_group_activity_cost_path(@activity_cost.group, @activity_cost) , class: "btn btn-light", data: { turbolinks: false } %>
-        <button class="btn btn-dark btn-link">send link</button>
-        <ul class="socialmedia-list is-active">
-        <li class="link">
-          <button class="btn btn-light btn-icon" data-container="body" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
-            <i class="fas fa-link"></i>
-          </button>
-        </li>
-        <li  class="whatsapp">
-          <button class="btn btn-light btn-icon" onclick="window.location.href='whatsapp://app';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
-            <i class="fab fa-whatsapp"></i>
-          </button>
-        </li>
-        <li class="slack">
-          <button class="btn btn-light btn-icon" onclick="window.location.href='slack://open';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
-            <i class="fab fa-slack"></i>
-          </button>
-        </li>
-      </ul>
-    </div>
+        <div class="share-wrapper">
+            <button class="btn btn-dark btn-link">send link</button>
+            <ul class="socialmedia-list is-active">
+            <li class="link">
+              <button class="btn btn-light btn-icon" data-container="body" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+                <i class="fas fa-link"></i>
+              </button>
+            </li>
+            <li  class="whatsapp">
+              <button class="btn btn-light btn-icon" onclick="window.location.href='whatsapp://app';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+                <i class="fab fa-whatsapp"></i>
+              </button>
+            </li>
+            <li class="slack">
+              <button class="btn btn-light btn-icon" onclick="window.location.href='slack://open';" data-toggle="popover" data-placement="top" data-content="URL has been copied to clipboard!">
+                <i class="fab fa-slack"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
 
   </div>
 </div>
