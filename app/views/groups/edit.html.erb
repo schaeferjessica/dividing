@@ -3,7 +3,7 @@
 	  <h2>edit group<sup>*</sup> <%= @group.group_name %></h2>
 		<div class="edit">
 		  <%= simple_form_for @group do |f| %>
-			  <%= f.input :group_name, label: false, placeholder: '👉 update your team name' %>
+			  <%= f.input :group_name, label: false, placeholder: '👉🏼 update your team name' %>
 	          <%= f.submit 'save me  💾', class:"btn btn-light" %>
 	      <% end %>
 	    </div>
@@ -14,7 +14,7 @@
   		    <div class="form-member edit-member-input">
   		     <%= simple_form_for [@group, @member], remote: true do |f| %>
   			   <% f.hidden_field :group_id, value: params[:group_id] %>
-  			   <%= f.input :name, label: false, placeholder: ' 👉 add a new member and press + or enter..'%>
+  			   <%= f.input :name, label: false, placeholder: '👉🏼 add a new member and press + or enter..'%>
   			   <%= f.submit '+', class:"edit-cross" %>
   		     <% end %>
 		    </div>
