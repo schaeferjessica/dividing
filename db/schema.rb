@@ -78,18 +78,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "state"
-    t.integer "amount_cents", default: 0, null: false
-    t.string "checkout_session_id"
-    t.bigint "user_id", null: false
-    t.bigint "split_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["split_id"], name: "index_orders_on_split_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
   create_table "splits", force: :cascade do |t|
     t.bigint "activity_cost_id", null: false
     t.bigint "member_id", null: false
@@ -126,8 +114,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_124836) do
   add_foreign_key "group_members", "members"
   add_foreign_key "groups", "users"
   add_foreign_key "members", "users"
-  add_foreign_key "orders", "splits"
-  add_foreign_key "orders", "users"
   add_foreign_key "splits", "activity_costs"
   add_foreign_key "splits", "members"
 end

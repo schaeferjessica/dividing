@@ -1,4 +1,10 @@
 .splits-index {
+  #splits-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
   .context {
     margin: 35px 0;
   }
