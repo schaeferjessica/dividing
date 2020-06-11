@@ -7,9 +7,7 @@
 }
 
 .accordion {
-  margin-bottom: 20px;
   border-bottom: 1px solid black;
-  width: 45%;
 
   .acc-btn {
     padding-top: 15px;
@@ -63,3 +61,15 @@
     margin: 5px;
   }
 }
+
+// .split-acc {
+//   margin-bottom: 20px;
+//   width: 45%;
+// }
+
+
+// #splits-container {
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+// }
