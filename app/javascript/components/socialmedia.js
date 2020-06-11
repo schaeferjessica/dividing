@@ -12,6 +12,15 @@ const copyTextareaBtn = document.querySelector('.link');
 
 if (copyTextareaBtn) {
 
+$('[data-toggle="popover"]').popover();
+
+$('body').on('mouseout', function (e) {
+    if ($(e.target).data('toggle') !== 'popover'
+        && $(e.target).parents('.popover.in').length === 0) {
+        $('[data-toggle="popover"]').popover('hide');
+    }
+});
+
 copyTextareaBtn && copyTextareaBtn.addEventListener('click', function(event) {
   var dummy = document.createElement('input');
   const url = window.location.href;
