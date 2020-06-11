@@ -18,10 +18,21 @@
   .subtracting,
   .additional {
     font-size: 12px;
+    font-weight: 300;
   }
 
   .balance {
     font-weight: 400;
+  }
+
+  .outstanding {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 25px 0;
+  }
+
+  .sum-wrapper {
+    margin: 25px 0px;
   }
 
   .btn-outstanding {
