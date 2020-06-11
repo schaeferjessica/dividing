@@ -6,13 +6,13 @@
       <p>Send the link to your group so people can see how much they owe and confirm when they have paid. 🤓</p>
     </div>
 
-    <div id="splits-container">
+<!--     <div id="splits-container"> -->
       <% if @activity_cost.split_type == 'evenly'%>
         <%= render 'evenly', splits: @splits %>
       <% else %>
         <%= render 'individually', splits: @splits %>
       <% end %>
-    </div>
+<!--     </div> -->
 
 
       <div class="sum">
