@@ -32,7 +32,6 @@
   @include media-breakpoint-down(xs) {
     .acc-tabpanel-inner {
       display: block;
-      margin: 5px;
     }
 
     .text-thin {
@@ -44,10 +43,7 @@
   .action-wrapper {
     display: flex;
     align-items: center;
-
-    .btn-light {
-      margin-right: 10px;
-    }
+    justify-content: flex-start;
   }
 
   .is-open {
@@ -58,6 +54,5 @@
 
   .acc-inner-text {
     font-weight: 300;
-    margin: 5px;
   }
 }

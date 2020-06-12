@@ -139,4 +139,22 @@
   .acc-tabpanel-inner {
       display: block;
   }
+
+    @include media-breakpoint-down(xs) {
+    .form-group {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .form-control {
+      font-size: 14px;
+      border: none;
+      font-weight: 400;
+
+      @include media-breakpoint-down(xs) {
+      width: 100px;
+      margin-bottom: 7px;
+    }
+  }
 }

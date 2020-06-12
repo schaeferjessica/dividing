@@ -3,7 +3,7 @@
     <h1><span>1 </span>name your group<sup> *</sup></h1>
     <p>here you can choose a team name</p>
     <%= simple_form_for @group do |f| %>
-		  <%= f.input :group_name, lable: false, placeholder: '👉🏼 best team ever' %>
+		  <%= f.input :group_name, lable: false, placeholder: '👉 best team ever' %>
       <div class="btn-wrapper">
         <%#= link_to "🏠", root_path, class:"btn btn-light btn-icon", data: { turbolinks: false } %>
         <%= link_to "back", root_path, class:"btn btn-light", data: { turbolinks: false } %>
@@ -31,7 +31,7 @@
             <div class="acc-tabpanel-inner">
               <div class="lighter">
                 <% group.members.each do |member| %>
-                  <p><%= member.name %></p>
+                  <p class="lighter"><%= member.name %></p>
                 <% end %>
               </div>
 
