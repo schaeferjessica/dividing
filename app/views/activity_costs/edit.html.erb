@@ -3,7 +3,7 @@
     <%= simple_form_for [@activity_cost.group, @activity_cost] do |f| %>
       <div class="form-wrapper">
         <div class="wrapper">
-          <h1><span>5 </span>edit total initial cost<sup> *</sup></h1>
+          <h1><span>3 </span>edit total initial cost<sup> *</sup></h1>
           <%= f.input :actual_cost, label: 'total amount paid' %>
           <%= f.input :currency, collection: ActivityCost::CURRENCY, label: 'Currency', include_blank: false %>
         </div>
