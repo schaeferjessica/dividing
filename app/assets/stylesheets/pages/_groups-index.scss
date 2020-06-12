@@ -46,6 +46,15 @@
     margin-left: 0;
     margin-right: 10px;
   }
+
+  .balance-wrapper {
+      display: flex;
+  }
+
+  .balance {
+      margin-left: 10px;
+      font-weight: 400;
+  }
 }
 
 .action-wrapper.index-wrapper {

@@ -54,8 +54,8 @@
               <div class="acc-tabpanel-inner acc-inner-text">
 
                 <div class="balance-wrapper">
-                  <p class="lighter"><%= cost.total_balance %> <%= cost.currency %></p>
                   <p class="lighter"><%= cost.updated_at.strftime("%A %d.%m.%Y") %></p>
+                  <p class="lighter balance"><%= cost.total_balance %> <%= cost.currency %></p>
                 </div>
 
                 <div class="action-wrapper">
