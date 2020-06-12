@@ -50,7 +50,7 @@
             </button>
           </div>
           <div class="acc-tabpanel border-bottom">
-            <% group.activity_costs.each do |cost| %>
+            <% group.activity_costs.sort_by(&:updated_at).reverse.each do |cost| %>
               <div class="acc-tabpanel-inner acc-inner-text">
 
                 <div class="balance-wrapper">
